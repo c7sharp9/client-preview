@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Carousel Style Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0118;
+            --bg-card: rgba(20, 10, 35, 0.6);
+            --cyan: #06b6d4;
+            --cyan-light: #22d3ee;
+            --orange: #f97316;
+            --amber: #f59e0b;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--cyan-light) 25%, var(--amber) 75%, var(--orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(139, 92, 246, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item .caption {
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .gallery-item .style-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .gallery-item .tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--cyan-light);
+            background: rgba(6, 182, 212, 0.15);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .gallery-item .caption {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span class="gradient-text">Instagram Carousel</span> Style Gallery</h1>
+        </header>
+
+        <div class="gallery">
+            <!-- Dark Luxe Typography -->
+            <div class="gallery-item">
+                <img src="images/dark-luxe-typography.jpeg" alt="Dark Luxe Typography">
+                <div class="caption">
+                    <span class="style-name">Dark Luxe Typography</span>
+                    <span class="tag">Premium</span>
+                </div>
+            </div>
+
+            <!-- Digital / Neon Tech -->
+            <div class="gallery-item">
+                <img src="images/digital-neon-tech.jpeg" alt="Digital Neon Tech">
+                <div class="caption">
+                    <span class="style-name">Digital / Neon Tech</span>
+                    <span class="tag">Futuristic</span>
+                </div>
+            </div>
+
+            <!-- Editorial + 3D Objects -->
+            <div class="gallery-item">
+                <img src="images/editorial-3d-objects.jpeg" alt="Editorial 3D Objects">
+                <div class="caption">
+                    <span class="style-name">Editorial + 3D Objects</span>
+                    <span class="tag">Professional</span>
+                </div>
+            </div>
+
+            <!-- Cinematic / Photographic -->
+            <div class="gallery-item">
+                <img src="images/cinematic-photographic.jpeg" alt="Cinematic Photographic">
+                <div class="caption">
+                    <span class="style-name">Cinematic / Photographic</span>
+                    <span class="tag">Storytelling</span>
+                </div>
+            </div>
+
+            <!-- Street Kinetic -->
+            <div class="gallery-item">
+                <img src="images/street-kinetic.jpeg" alt="Street Kinetic">
+                <div class="caption">
+                    <span class="style-name">Street Kinetic</span>
+                    <span class="tag">High Energy</span>
+                </div>
+            </div>
+
+            <!-- Textured / Collage -->
+            <div class="gallery-item">
+                <img src="images/textured-collage.jpeg" alt="Textured Collage">
+                <div class="caption">
+                    <span class="style-name">Textured / Collage</span>
+                    <span class="tag">Authentic</span>
+                </div>
+            </div>
+
+            <!-- Urban Refined -->
+            <div class="gallery-item">
+                <img src="images/urban-refined.jpeg" alt="Urban Refined">
+                <div class="caption">
+                    <span class="style-name">Urban Refined</span>
+                    <span class="tag">Modern</span>
+                </div>
+            </div>
+
+            <!-- Original -->
+            <div class="gallery-item">
+                <img src="images/original-output.jpeg" alt="Original Output">
+                <div class="caption">
+                    <span class="style-name">Original Gemini Output</span>
+                    <span class="tag">No Style Direction</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© reframe.fm</p>
+        </footer>
+    </div>
+</body>
+</html>
