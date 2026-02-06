@@ -298,16 +298,18 @@
     }
     .df .step-row:last-child { border-bottom: none; }
 
-    /* F Accent Background */
+    /* F Accent Background — Navy with orange pops */
     .df.acc-bg {
       background: linear-gradient(160deg, #0f1c2e 0%, #1a3352 100%);
     }
-    .df.acc-bg .sec-label { color: rgba(255,255,255,0.6); }
+    .df.acc-bg .sec-label { color: #E8762B; }
     .df.acc-bg .h { color: #FFFFFF; }
     .df.acc-bg .p { color: rgba(255,255,255,0.7); }
-    .df.acc-bg .p b { color: rgba(255,255,255,0.95); }
-    .df.acc-bg .emphasis { color: #FFFFFF; border-top-color: rgba(255,255,255,0.3); }
-    .df.acc-bg .brand { border-top-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+    .df.acc-bg .p b { color: #F59542; }
+    .df.acc-bg .emphasis { color: #FFFFFF; border-top-color: #E8762B; }
+    .df.acc-bg .accent-text { color: #F59542; }
+    .df.acc-bg .step-num { background: linear-gradient(135deg, #E8762B, #F59542); }
+    .df.acc-bg .brand { border-top-color: rgba(232, 118, 43, 0.3); color: rgba(255,255,255,0.4); }
     .df.acc-bg .sn { color: rgba(255,255,255,0.3); }
 
     /* ============================================================
@@ -455,7 +457,7 @@
        3D Dentists Brand Colors
        ============================================================ */
     .dj {
-      background: #0f1c2e;
+      background: linear-gradient(160deg, #0f1c2e 0%, #1a3352 100%);
       padding: 80px;
       position: relative;
       overflow: hidden;
@@ -603,13 +605,23 @@
       margin-top: 40px;
     }
 
-    /* J Accent Background */
+    /* J Accent Background — White with navy/orange accents */
     .dj.acc-bg {
-      background: linear-gradient(160deg, #0f1c2e 0%, #1a3352 100%);
+      background: #FAFAFA;
     }
     .dj.acc-bg::before {
       background: linear-gradient(90deg, #E8762B, #F59542, #E8762B);
     }
+    .dj.acc-bg .status { color: #E8762B; }
+    .dj.acc-bg .h { color: #0f1c2e; }
+    .dj.acc-bg .p { color: rgba(15, 28, 46, 0.65); }
+    .dj.acc-bg .p b { color: #0f1c2e; }
+    .dj.acc-bg .emphasis { background: rgba(15, 28, 46, 0.06); border-left-color: #E8762B; color: #0f1c2e; }
+    .dj.acc-bg .terminal-box { background: rgba(15, 28, 46, 0.04); border-color: rgba(15, 28, 46, 0.15); }
+    .dj.acc-bg .terminal-box .line { color: rgba(15, 28, 46, 0.7); }
+    .dj.acc-bg .terminal-box .prompt { color: #E8762B; }
+    .dj.acc-bg .brand { border-top-color: rgba(15, 28, 46, 0.1); color: rgba(15, 28, 46, 0.35); }
+    .dj.acc-bg .sn { color: rgba(15, 28, 46, 0.25); }
 
     /* ============================================================
        DESIGN L — STREET KINETIC (Navy/Orange)
