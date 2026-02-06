@@ -9,9 +9,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #d4d4d4; font-family: 'DM Sans', sans-serif; padding: 30px 24px; min-height: 100vh; }
+  body { background: #d4d4d4; font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+
+  /* Page Header */
+  .page-header {
+    background: #0a0118;
+    padding: 3rem 2rem;
+    margin-bottom: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  .page-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+  }
+  .page-title .gradient-text {
+    background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 25%, #f59e0b 75%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .page-title .white { color: #ffffff; }
+
+  /* Content Area */
+  .content-area {
+    padding: 30px 24px;
+  }
+
   .design-row { display: flex; flex-direction: row; align-items: flex-start; gap: 14px; overflow-x: auto; padding-bottom: 16px; }
-  .design-label { font-size: 16px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #1a1a1a; margin-bottom: 16px; padding-left: 4px; }
+  .design-label { font-size: 16px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #1E4468; margin-bottom: 16px; padding-left: 4px; }
   .design-section { margin-bottom: 48px; }
   .slide-wrap { width: 405px; height: 506.25px; min-width: 405px; overflow: hidden; border-radius: 6px; position: relative; }
   .sb { width: 1080px; height: 1350px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; transform: scale(0.375); transform-origin: top left; }
@@ -1312,6 +1340,14 @@
 </style>
 </head>
 <body>
+
+<header class="page-header">
+  <h1 class="page-title">
+    <span class="gradient-text">LinkedIn Doc</span> <span class="white">Style Gallery</span>
+  </h1>
+</header>
+
+<div class="content-area">
 
 <!-- ============================================================
      DESIGN A — WARM EDITORIAL
@@ -2777,6 +2813,8 @@
 
   </div>
 </div>
+
+</div><!-- end content-area -->
 
 </body>
 </html>
