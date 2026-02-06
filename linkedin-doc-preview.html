@@ -1,0 +1,3035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Document Designs — Digital by Design Podcast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #d4d4d4; font-family: 'DM Sans', sans-serif; padding: 30px 24px; min-height: 100vh; }
+  .design-row { display: flex; flex-direction: row; align-items: flex-start; gap: 14px; overflow-x: auto; padding-bottom: 16px; }
+  .design-label { font-size: 16px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #1a1a1a; margin-bottom: 16px; padding-left: 4px; }
+  .design-section { margin-bottom: 48px; }
+  .slide-wrap { width: 405px; height: 506.25px; min-width: 405px; overflow: hidden; border-radius: 6px; position: relative; }
+  .sb { width: 1080px; height: 1350px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; transform: scale(0.375); transform-origin: top left; }
+
+  /* Swipe indicator under slide numbers */
+  .sb .sn { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .sb .sn::after { content: 'Swipe →'; font-size: 0.65em; opacity: 0.6; font-weight: 500; }
+  .sb .sn.no-swipe::after { display: none; }
+
+  /* ============================================================
+     DESIGN A — WARM EDITORIAL
+     ============================================================ */
+  .da { background: #0D0D0F; padding: 110px 100px 120px; }
+  .da::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 80%, rgba(200,145,90,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(200,145,90,0.04) 0%, transparent 50%); pointer-events: none; z-index: 0; }
+  .da .sc { position: relative; z-index: 1; }
+  .da .sn { position: absolute; top: 48px; right: 72px; font-size: 32px; font-weight: 500; letter-spacing: 4px; color: #6B6865; z-index: 1; }
+  .da .brand { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 0 100px; border-top: 1px solid rgba(200,145,90,0.15); z-index: 1; font-size: 26px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #6B6865; }
+  .da .brand .arr { color: #C8915A; font-size: 30px; }
+  .da .aline { width: 70px; height: 4px; background: linear-gradient(90deg, #C8915A, #D4A76A); border-radius: 2px; margin-bottom: 48px; }
+  .da .h { font-family: 'Playfair Display', serif; font-weight: 900; color: #F2F0EC; line-height: 1.1; margin-bottom: 44px; }
+  .da .h.lg { font-size: 82px; }
+  .da .p { font-family: 'DM Sans', sans-serif; font-size: 52px; font-weight: 300; line-height: 1.55; color: #A8A4A0; max-width: 880px; }
+  .da .p b { font-weight: 600; color: #F2F0EC; }
+  .da .qi { font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; color: #E8C99B; line-height: 1.2; }
+  .da .vbar { position: absolute; left: 0; top: 0; bottom: 0; width: 8px; background: linear-gradient(180deg, #C8915A, transparent 80%); z-index: 1; }
+  .da .qm { font-family: 'Playfair Display', serif; font-size: 260px; font-weight: 900; color: #C8915A; opacity: 0.2; line-height: 0.7; position: absolute; top: 70px; left: 70px; z-index: 1; }
+  .da .hook-lbl { font-size: 30px; font-weight: 600; letter-spacing: 8px; text-transform: uppercase; color: #C8915A; margin-bottom: 40px; }
+  .da .cta { font-size: 40px; font-weight: 400; color: #6B6865; letter-spacing: 1px; line-height: 1.9; text-align: center; }
+  .da .divr { width: 140px; height: 2px; background: rgba(200,145,90,0.4); margin: 40px 0; }
+  .da.cen { align-items: center; text-align: center; }
+  .da.cen .sc { display: flex; flex-direction: column; align-items: center; }
+  .da.cen .aline, .da.cen .divr { margin-left: auto; margin-right: auto; }
+
+  /* ============================================================
+     DESIGN B — MODERN INDUSTRIAL
+     ============================================================ */
+  .db { background: #F0EDEA; padding: 110px 100px 120px; }
+  .db::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; z-index: 0; }
+  .db .sc { position: relative; z-index: 1; }
+  .db .sn { position: absolute; top: 48px; right: 72px; font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 500; letter-spacing: 2px; color: #8A857F; z-index: 1; }
+  .db .brand { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 0 100px; border-top: 2px solid rgba(26,26,26,0.12); z-index: 1; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #8A857F; }
+  .db .brand .arr { color: #2C5F8A; font-size: 28px; }
+  .db .aline { width: 60px; height: 5px; background: #2C5F8A; margin-bottom: 44px; }
+  .db .h { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #1A1A1A; line-height: 1.08; margin-bottom: 40px; letter-spacing: -1px; }
+  .db .h.lg { font-size: 84px; }
+  .db .p { font-family: 'DM Sans', sans-serif; font-size: 50px; font-weight: 400; line-height: 1.55; color: #4A4542; max-width: 860px; }
+  .db .p b { font-weight: 700; color: #1A1A1A; }
+  .db .qi { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #1E4468; line-height: 1.15; letter-spacing: -1px; }
+  .db .vbar { position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: #2C5F8A; z-index: 1; }
+  .db .qm { font-family: 'Space Grotesk', sans-serif; font-size: 280px; font-weight: 700; color: #2C5F8A; opacity: 0.08; line-height: 0.7; position: absolute; top: 60px; left: 60px; z-index: 1; }
+  .db .hook-lbl { font-family: 'JetBrains Mono', monospace; font-size: 30px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: #2C5F8A; margin-bottom: 36px; padding: 10px 0; border-bottom: 2px solid rgba(26,26,26,0.12); display: inline-block; }
+  .db .tag { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: #8A857F; padding: 12px 24px; border: 2px solid rgba(26,26,26,0.12); display: inline-block; }
+  .db .callout { font-family: 'Space Grotesk', sans-serif; font-size: 58px; font-weight: 700; color: #2C5F8A; line-height: 1.2; }
+  .db .divr { width: 60px; height: 3px; background: #2C5F8A; margin: 40px 0; }
+  .db .cta { font-family: 'DM Sans', sans-serif; font-size: 38px; font-weight: 400; color: #8A857F; letter-spacing: 1px; line-height: 1.9; text-align: center; }
+  .db.cen { align-items: center; text-align: center; }
+  .db.cen .sc { display: flex; flex-direction: column; align-items: center; }
+  .db.cen .aline, .db.cen .divr { margin-left: auto; margin-right: auto; }
+  .db.dk { background: #1E4468; }
+  .db.dk::before { background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 40px 40px; }
+  .db.dk .h { color: #F0EDEA; } .db.dk .p { color: #C8C4BF; } .db.dk .p b { color: #F0EDEA; } .db.dk .qi { color: #E8C99B; } .db.dk .sn { color: rgba(240,237,234,0.35); }
+  .db.dk .brand { border-top-color: rgba(255,255,255,0.1); color: rgba(240,237,234,0.35); } .db.dk .brand .arr { color: #F0EDEA; }
+  .db.dk .aline { background: #F0EDEA; } .db.dk .divr { background: rgba(240,237,234,0.2); } .db.dk .callout { color: #E8C99B; } .db.dk .cta { color: rgba(240,237,234,0.5); } .db.dk .vbar { background: #F0EDEA; }
+
+  /* ============================================================
+     DESIGN C — DIGITAL PRECISION (no graphics)
+     ============================================================ */
+  .dc { background: #0A1628; padding: 110px 100px 120px; }
+  .dc::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(0,180,216,0.08) 0%, transparent 40%), radial-gradient(circle at 15% 85%, rgba(0,180,216,0.05) 0%, transparent 40%); pointer-events: none; z-index: 0; }
+  .dc .sc { position: relative; z-index: 2; }
+  .dc .sn { position: absolute; top: 48px; right: 72px; font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 500; letter-spacing: 2px; color: rgba(0,180,216,0.4); z-index: 2; }
+  .dc .brand { position: absolute; bottom: 0; left: 0; right: 0; height: 100px; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 0 100px; border-top: 1px solid rgba(0,180,216,0.15); z-index: 2; font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+  .dc .brand .arr { color: #00B4D8; font-size: 28px; }
+  .dc .aline { width: 60px; height: 4px; background: linear-gradient(90deg, #00B4D8, #0077B6); margin-bottom: 44px; }
+  .dc .h { font-family: 'Outfit', sans-serif; font-weight: 800; color: #FFFFFF; line-height: 1.08; margin-bottom: 40px; letter-spacing: -1px; }
+  .dc .h.lg { font-size: 84px; }
+  .dc .p { font-family: 'DM Sans', sans-serif; font-size: 50px; font-weight: 300; line-height: 1.55; color: rgba(255,255,255,0.6); max-width: 860px; }
+  .dc .p b { font-weight: 600; color: rgba(255,255,255,0.9); }
+  .dc .qi { font-family: 'Outfit', sans-serif; font-weight: 800; color: #00B4D8; line-height: 1.15; letter-spacing: -1px; }
+  .dc .vbar { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: linear-gradient(180deg, #00B4D8, transparent 70%); z-index: 2; }
+  .dc .qm { font-family: 'Outfit', sans-serif; font-size: 300px; font-weight: 900; color: #00B4D8; opacity: 0.07; line-height: 0.7; position: absolute; top: 60px; left: 60px; z-index: 1; }
+  .dc .hook-lbl { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 500; letter-spacing: 6px; text-transform: uppercase; color: #00B4D8; margin-bottom: 36px; }
+  .dc .callout { font-family: 'Outfit', sans-serif; font-size: 58px; font-weight: 700; color: #00B4D8; line-height: 1.2; }
+  .dc .divr { width: 60px; height: 2px; background: rgba(0,180,216,0.3); margin: 40px 0; }
+  .dc .cta { font-family: 'DM Sans', sans-serif; font-size: 38px; font-weight: 400; color: rgba(255,255,255,0.35); letter-spacing: 1px; line-height: 1.9; text-align: center; }
+  .dc.cen { align-items: center; text-align: center; }
+  .dc.cen .sc { display: flex; flex-direction: column; align-items: center; }
+  .dc.cen .aline, .dc.cen .divr { margin-left: auto; margin-right: auto; }
+  .dc.lt { background: #0F2035; }
+  .dc.lt::before { background: radial-gradient(circle at 80% 20%, rgba(0,180,216,0.06) 0%, transparent 35%), radial-gradient(circle at 20% 80%, rgba(0,119,182,0.04) 0%, transparent 35%); }
+  .dc.acc { background: linear-gradient(160deg, #0077B6 0%, #023E8A 100%); }
+  .dc.acc::before { background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.06) 0%, transparent 40%), radial-gradient(circle at 30% 70%, rgba(0,0,0,0.15) 0%, transparent 40%); }
+  .dc.acc .brand { border-top-color: rgba(255,255,255,0.12); } .dc.acc .aline { background: rgba(255,255,255,0.5); } .dc.acc .divr { background: rgba(255,255,255,0.2); }
+  .dc.acc .qi { color: #FFFFFF; } .dc.acc .callout { color: rgba(255,255,255,0.9); } .dc.acc .sn { color: rgba(255,255,255,0.25); }
+
+  /* ============================================================
+     DESIGN D — BOLD & LOUD
+     ============================================================ */
+  .dd {
+    padding: 110px 100px 120px;
+    background: #111111;
+  }
+  .dd .sc { position: relative; z-index: 1; }
+  .dd .sn {
+    position: absolute; top: 48px; right: 72px;
+    font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 700;
+    letter-spacing: 2px; color: rgba(255,255,255,0.25); z-index: 1;
+  }
+  .dd .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 100px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 100px;
+    border-top: 3px solid rgba(255,255,255,0.08);
+    z-index: 1;
+    font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .dd .brand .arr { font-size: 28px; }
+  .dd .h {
+    font-family: 'Sora', sans-serif; font-weight: 800;
+    color: #FFFFFF; line-height: 1.02;
+    margin-bottom: 40px; letter-spacing: -2px;
+  }
+  .dd .h.lg { font-size: 90px; }
+  .dd .h.xl { font-size: 110px; }
+  .dd .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 50px; font-weight: 400;
+    line-height: 1.55; color: rgba(255,255,255,0.65);
+    max-width: 860px;
+  }
+  .dd .p b { font-weight: 700; color: #FFFFFF; }
+  .dd .qi {
+    font-family: 'Sora', sans-serif; font-weight: 800;
+    line-height: 1.1; letter-spacing: -2px;
+  }
+  .dd .aline { width: 80px; height: 6px; margin-bottom: 44px; }
+  .dd .divr { width: 80px; height: 4px; margin: 40px 0; }
+  .dd .callout {
+    font-family: 'Sora', sans-serif; font-size: 62px;
+    font-weight: 800; line-height: 1.15; letter-spacing: -1px;
+  }
+  .dd .hook-lbl {
+    font-family: 'Sora', sans-serif; font-size: 32px; font-weight: 700;
+    letter-spacing: 6px; text-transform: uppercase;
+    margin-bottom: 36px; display: inline-block;
+    padding: 14px 28px;
+  }
+  .dd .qm {
+    font-family: 'Sora', sans-serif; font-size: 340px; font-weight: 800;
+    opacity: 0.08; line-height: 0.7;
+    position: absolute; top: 40px; left: 50px; z-index: 1;
+  }
+  .dd .cta { font-family: 'DM Sans', sans-serif; font-size: 40px; font-weight: 400; letter-spacing: 1px; line-height: 1.9; text-align: center; }
+  .dd.cen { align-items: center; text-align: center; }
+  .dd.cen .sc { display: flex; flex-direction: column; align-items: center; }
+  .dd.cen .aline, .dd.cen .divr { margin-left: auto; margin-right: auto; }
+
+  /* Color block on side */
+  .dd .side-block {
+    position: absolute; top: 0; width: 28px; height: 100%; z-index: 1;
+  }
+
+  /* === D Color Themes === */
+
+  /* Coral pop */
+  .dd.coral { background: #111111; }
+  .dd.coral .aline { background: #FF6B5E; }
+  .dd.coral .divr { background: rgba(255,107,94,0.4); }
+  .dd.coral .callout { color: #FF6B5E; }
+  .dd.coral .qi { color: #FF6B5E; }
+  .dd.coral .hook-lbl { background: #FF6B5E; color: #111; }
+  .dd.coral .brand .arr { color: #FF6B5E; }
+  .dd.coral .qm { color: #FF6B5E; }
+  .dd.coral .side-block { background: #FF6B5E; }
+
+  /* Electric lime on dark */
+  .dd.lime { background: #111111; }
+  .dd.lime .aline { background: #B8E62E; }
+  .dd.lime .divr { background: rgba(184,230,46,0.35); }
+  .dd.lime .callout { color: #B8E62E; }
+  .dd.lime .qi { color: #B8E62E; }
+  .dd.lime .brand .arr { color: #B8E62E; }
+  .dd.lime .qm { color: #B8E62E; }
+  .dd.lime .side-block { background: #B8E62E; }
+
+  /* Bright white on coral */
+  .dd.coral-bg { background: #FF6B5E; }
+  .dd.coral-bg .h { color: #FFFFFF; }
+  .dd.coral-bg .p { color: rgba(255,255,255,0.8); }
+  .dd.coral-bg .p b { color: #FFFFFF; }
+  .dd.coral-bg .aline { background: #FFFFFF; }
+  .dd.coral-bg .divr { background: rgba(255,255,255,0.35); }
+  .dd.coral-bg .callout { color: #FFFFFF; }
+  .dd.coral-bg .qi { color: #FFFFFF; }
+  .dd.coral-bg .brand { border-top-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.45); }
+  .dd.coral-bg .brand .arr { color: #FFFFFF; }
+  .dd.coral-bg .sn { color: rgba(255,255,255,0.35); }
+  .dd.coral-bg .cta { color: rgba(255,255,255,0.6); }
+  .dd.coral-bg .qm { color: #FFFFFF; opacity: 0.12; }
+
+  /* White slide with dark text */
+  .dd.wht { background: #FAFAFA; }
+  .dd.wht .h { color: #111; }
+  .dd.wht .p { color: #444; }
+  .dd.wht .p b { color: #111; }
+  .dd.wht .sn { color: #ccc; }
+  .dd.wht .brand { border-top-color: rgba(0,0,0,0.08); color: #bbb; }
+  .dd.wht .aline { background: #FF6B5E; }
+  .dd.wht .divr { background: rgba(255,107,94,0.3); }
+  .dd.wht .callout { color: #FF6B5E; }
+  .dd.wht .qi { color: #FF6B5E; }
+  .dd.wht .brand .arr { color: #FF6B5E; }
+  .dd.wht .qm { color: #FF6B5E; opacity: 0.08; }
+  .dd.wht .side-block { background: #FF6B5E; }
+
+  /* ============================================================
+     DESIGN E — STRUCTURAL VARIETY (Rose/Pink Palette)
+     Each slide uses a different layout pattern
+     ============================================================ */
+  .de {
+    background: #0a0118;
+    padding: 80px 80px 100px;
+    position: relative;
+  }
+  .de::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 80%, rgba(225, 29, 72, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(251, 113, 133, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .de .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+  .de .sn {
+    position: absolute; top: 40px; right: 60px;
+    font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 600;
+    letter-spacing: 2px; color: rgba(255,255,255,0.2); z-index: 1;
+  }
+  .de .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 80px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    z-index: 1;
+    font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .de .brand .arr { color: #e11d48; font-size: 24px; }
+  .de .h {
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    color: #FFFFFF; line-height: 1.08;
+    margin-bottom: 32px; letter-spacing: -1px;
+  }
+  .de .h.lg { font-size: 78px; }
+  .de .h.xl { font-size: 96px; }
+  .de .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 400;
+    line-height: 1.5; color: rgba(255,255,255,0.6);
+  }
+  .de .p b { font-weight: 600; color: rgba(255,255,255,0.9); }
+
+  /* Gradient text utility */
+  .de .grad-text {
+    background: linear-gradient(135deg, #e11d48 0%, #fb7185 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section label */
+  .de .sec-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px; font-weight: 700;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: #e11d48;
+    margin-bottom: 28px;
+  }
+
+  /* Comparison columns layout */
+  .de .compare-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    margin-top: 20px;
+    flex: 1;
+    align-items: stretch;
+  }
+  .de .compare-col {
+    padding: 44px 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .de .compare-col.bad {
+    background: rgba(239, 68, 68, 0.08);
+    border: 2px solid rgba(239, 68, 68, 0.2);
+  }
+  .de .compare-col.good {
+    background: rgba(34, 197, 94, 0.08);
+    border: 2px solid rgba(34, 197, 94, 0.2);
+  }
+  .de .compare-col h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px; font-weight: 700;
+    margin-bottom: 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .de .compare-col.bad h4 { color: #f87171; }
+  .de .compare-col.good h4 { color: #4ade80; }
+  .de .compare-col ul {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 32px;
+    flex: 1;
+    justify-content: flex-start;
+  }
+  .de .compare-col li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 38px; font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    padding-left: 48px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .de .compare-col.bad li::before {
+    content: '✗';
+    position: absolute; left: 0;
+    color: #f87171; font-weight: 700;
+  }
+  .de .compare-col.good li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: #4ade80; font-weight: 700;
+  }
+
+  /* Big stat callout */
+  .de .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    padding: 40px 0;
+  }
+  .de .stat-big {
+    font-family: 'Outfit', sans-serif;
+    font-size: 140px; font-weight: 900;
+    letter-spacing: -4px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .de .stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 42px; font-weight: 400;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Timeline / numbered steps */
+  .de .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 24px;
+    flex: 1;
+    justify-content: space-around;
+  }
+  .de .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .de .timeline-item:last-child { border-bottom: none; }
+  .de .timeline-num {
+    width: 72px; height: 72px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #e11d48, #fb7185);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 36px; font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+  .de .timeline-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    padding-top: 14px;
+    line-height: 1.45;
+  }
+
+  /* Before/After transformation */
+  .de .transform-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    gap: 28px;
+    margin-top: 28px;
+    flex: 1;
+  }
+  .de .transform-box {
+    padding: 56px 32px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .de .transform-box.before {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px dashed rgba(239, 68, 68, 0.3);
+  }
+  .de .transform-box.after {
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.2), rgba(251, 113, 133, 0.15));
+    border: 2px solid rgba(225, 29, 72, 0.4);
+  }
+  .de .transform-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .de .transform-box.before .transform-label { color: #f87171; }
+  .de .transform-box.after .transform-label { color: #fda4af; }
+  .de .transform-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px; font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.35;
+  }
+  .de .transform-arrow {
+    font-size: 64px;
+    color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+  }
+
+  /* Icon balance layout */
+  .de .balance-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    gap: 32px;
+    margin-top: 32px;
+    flex: 1;
+  }
+  .de .balance-box {
+    padding: 56px 40px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .de .balance-icon {
+    font-size: 88px;
+    margin-bottom: 24px;
+  }
+  .de .balance-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px; font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+  .de .balance-plus {
+    font-family: 'Outfit', sans-serif;
+    font-size: 80px; font-weight: 300;
+    color: #e11d48;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Checkmark list */
+  .de .check-list {
+    list-style: none;
+    display: flex; flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+    flex: 1;
+  }
+  .de .check-list li {
+    display: flex; align-items: center; gap: 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 40px; font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .de .check-list li:last-child { border-bottom: none; }
+  .de .check-list li .chk {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: rgba(34, 197, 94, 0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: #4ade80;
+    font-size: 28px; font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Centered dramatic slide */
+  .de.cen { text-align: center; }
+  .de.cen .sc { align-items: center; justify-content: center; }
+
+  /* Accent background variation */
+  .de.acc-bg {
+    background: linear-gradient(160deg, rgba(225, 29, 72, 0.25) 0%, rgba(251, 113, 133, 0.15) 100%);
+  }
+  .de.acc-bg::before { opacity: 0.5; }
+
+  /* Quote style for E */
+  .de .big-quote {
+    font-family: 'Outfit', sans-serif;
+    font-size: 72px; font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.15;
+    position: relative;
+    padding-left: 60px;
+  }
+  .de .big-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0; top: -20px;
+    font-size: 160px;
+    color: #e11d48;
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  /* ============================================================
+     DESIGN F — EDITORIAL CLEAN (Light, Minimal, Lots of Whitespace)
+     Inspired by Editorial + 3D Objects style
+     ============================================================ */
+  .df {
+    background: #FAFAFA;
+    padding: 80px 80px 100px;
+    position: relative;
+  }
+  .df .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+  .df .sn {
+    position: absolute; top: 40px; right: 60px;
+    font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 500;
+    letter-spacing: 2px; color: rgba(0,0,0,0.25); z-index: 1;
+  }
+  .df .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 80px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    z-index: 1;
+    font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(0,0,0,0.3);
+  }
+  .df .brand .arr { color: #2563eb; font-size: 24px; }
+  .df .h {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    color: #111; line-height: 1.08;
+    margin-bottom: 32px; letter-spacing: -2px;
+  }
+  .df .h.lg { font-size: 76px; }
+  .df .h.xl { font-size: 92px; }
+  .df .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 400;
+    line-height: 1.5; color: rgba(0,0,0,0.55);
+  }
+  .df .p b { font-weight: 600; color: rgba(0,0,0,0.85); }
+  .df .sec-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px; font-weight: 600;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: #2563eb;
+    margin-bottom: 28px;
+  }
+  .df .accent-text { color: #2563eb; }
+  .df .card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    padding: 44px 48px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+  .df .card-accent {
+    background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, rgba(37,99,235,0.02) 100%);
+    border: 1px solid rgba(37,99,235,0.12);
+    border-radius: 16px;
+    padding: 44px 48px;
+  }
+  .df .card-left {
+    background: #FFFFFF;
+    border-left: 4px solid #2563eb;
+    padding: 36px 44px;
+    border-radius: 0 16px 16px 0;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+  }
+  .df .big-quote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 72px; font-weight: 700;
+    color: #111;
+    line-height: 1.12;
+    position: relative;
+    padding-left: 60px;
+    letter-spacing: -2px;
+  }
+  .df .big-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0; top: -20px;
+    font-size: 160px;
+    color: #2563eb;
+    opacity: 0.15;
+    line-height: 1;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  .df.cen { text-align: center; }
+  .df.cen .sc { align-items: center; justify-content: center; }
+  .df.acc-bg { background: #2563eb; }
+  .df.acc-bg .h { color: #FFF; }
+  .df.acc-bg .p { color: rgba(255,255,255,0.8); }
+  .df.acc-bg .p b { color: #FFF; }
+  .df.acc-bg .sec-label { color: rgba(255,255,255,0.6); }
+  .df.acc-bg .brand { border-top-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+  .df.acc-bg .brand .arr { color: #FFF; }
+  .df.acc-bg .sn { color: rgba(255,255,255,0.3); }
+  .df.acc-bg .card { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.15); box-shadow: none; }
+  .df.acc-bg .card .p { color: rgba(255,255,255,0.9); }
+
+  /* ============================================================
+     DESIGN G — DARK LUXE (Charcoal, Gold Accents, Elegant Serif)
+     Inspired by Dark Luxe Typography style
+     ============================================================ */
+  .dg {
+    background: #1a1a1a;
+    padding: 80px 80px 100px;
+    position: relative;
+  }
+  .dg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 70%, rgba(212,175,125,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dg .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+  .dg .sn {
+    position: absolute; top: 40px; right: 60px;
+    font-family: 'DM Sans', sans-serif; font-size: 22px; font-weight: 400;
+    letter-spacing: 3px; color: rgba(212,175,125,0.4); z-index: 1;
+  }
+  .dg .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 80px;
+    border-top: 1px solid rgba(212,175,125,0.15);
+    z-index: 1;
+    font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 500;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(212,175,125,0.4);
+  }
+  .dg .brand .arr { color: #d4af7d; font-size: 22px; }
+  .dg .h {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    color: #f5f0e8; line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  .dg .h.lg { font-size: 74px; }
+  .dg .h.xl { font-size: 88px; }
+  .dg .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 300;
+    line-height: 1.55; color: rgba(245,240,232,0.6);
+  }
+  .dg .p b { font-weight: 500; color: rgba(245,240,232,0.9); }
+  .dg .sec-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px; font-weight: 500;
+    letter-spacing: 6px; text-transform: uppercase;
+    color: #d4af7d;
+    margin-bottom: 28px;
+  }
+  .dg .gold-text { color: #d4af7d; }
+  .dg .card {
+    background: rgba(212,175,125,0.04);
+    border: 1px solid rgba(212,175,125,0.12);
+    border-radius: 8px;
+    padding: 44px 48px;
+  }
+  .dg .card-left {
+    background: rgba(212,175,125,0.04);
+    border-left: 3px solid #d4af7d;
+    padding: 36px 44px;
+    border-radius: 0 8px 8px 0;
+  }
+  .dg .big-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 70px; font-weight: 700;
+    font-style: italic;
+    color: #f5f0e8;
+    line-height: 1.15;
+    position: relative;
+    padding-left: 60px;
+  }
+  .dg .big-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0; top: -10px;
+    font-size: 150px;
+    color: #d4af7d;
+    opacity: 0.25;
+    line-height: 1;
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+  }
+  .dg .divider {
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, #d4af7d, transparent);
+    margin: 40px 0;
+  }
+  .dg.cen { text-align: center; }
+  .dg.cen .sc { align-items: center; justify-content: center; }
+  .dg.cen .divider { margin: 40px auto; background: linear-gradient(90deg, transparent, #d4af7d, transparent); }
+  .dg.acc-bg { background: linear-gradient(160deg, #2a2520 0%, #1a1a1a 100%); }
+  .dg.acc-bg::before { background: radial-gradient(ellipse at 50% 50%, rgba(212,175,125,0.08) 0%, transparent 60%); }
+
+  /* ============================================================
+     DESIGN H — URBAN REFINED (Concrete Grays, Architectural, Bold)
+     Inspired by Urban Refined style
+     ============================================================ */
+  .dh {
+    background: #e8e4e0;
+    padding: 80px 80px 100px;
+    position: relative;
+  }
+  .dh::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.02) 0%, transparent 30%),
+      linear-gradient(0deg, rgba(0,0,0,0.02) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dh .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+  .dh .sn {
+    position: absolute; top: 40px; right: 60px;
+    font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 600;
+    letter-spacing: 2px; color: rgba(0,0,0,0.2); z-index: 1;
+  }
+  .dh .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 80px;
+    border-top: 2px solid rgba(0,0,0,0.08);
+    z-index: 1;
+    font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(0,0,0,0.25);
+  }
+  .dh .brand .arr { color: #c45c3e; font-size: 24px; }
+  .dh .h {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    color: #1a1a1a; line-height: 1.05;
+    margin-bottom: 32px; letter-spacing: -2px;
+  }
+  .dh .h.lg { font-size: 78px; }
+  .dh .h.xl { font-size: 96px; }
+  .dh .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 400;
+    line-height: 1.5; color: rgba(0,0,0,0.55);
+  }
+  .dh .p b { font-weight: 600; color: rgba(0,0,0,0.85); }
+  .dh .sec-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 30px; font-weight: 700;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: #c45c3e;
+    margin-bottom: 28px;
+  }
+  .dh .rust-text { color: #c45c3e; }
+  .dh .card {
+    background: #d9d4ce;
+    border-radius: 12px;
+    padding: 44px 48px;
+  }
+  .dh .card-accent {
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 44px 48px;
+  }
+  .dh .card-accent .p { color: rgba(255,255,255,0.7); }
+  .dh .card-accent .p b { color: #fff; }
+  .dh .card-left {
+    background: #d9d4ce;
+    border-left: 5px solid #c45c3e;
+    padding: 36px 44px;
+    border-radius: 0 12px 12px 0;
+  }
+  .dh .big-quote {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 72px; font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.1;
+    position: relative;
+    padding-left: 70px;
+    letter-spacing: -2px;
+  }
+  .dh .big-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0; top: -30px;
+    font-size: 180px;
+    color: #c45c3e;
+    opacity: 0.15;
+    line-height: 1;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+  }
+  .dh .geo-line {
+    width: 100px; height: 5px;
+    background: #c45c3e;
+    margin: 40px 0;
+  }
+  .dh.cen { text-align: center; }
+  .dh.cen .sc { align-items: center; justify-content: center; }
+  .dh.cen .geo-line { margin: 40px auto; }
+  .dh.dk { background: #1a1a1a; }
+  .dh.dk::before { background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 30%); }
+  .dh.dk .h { color: #e8e4e0; }
+  .dh.dk .p { color: rgba(232,228,224,0.6); }
+  .dh.dk .p b { color: rgba(232,228,224,0.9); }
+  .dh.dk .brand { border-top-color: rgba(255,255,255,0.08); color: rgba(255,255,255,0.25); }
+  .dh.dk .brand .arr { color: #c45c3e; }
+  .dh.dk .sn { color: rgba(255,255,255,0.2); }
+  .dh.dk .card { background: rgba(255,255,255,0.05); }
+  .dh.dk .card-left { background: rgba(255,255,255,0.05); }
+  .dh.dk .sec-label { color: #e8a07a; }
+
+  /* ============================================================
+     DESIGN I — WARM ORGANIC (Cream, Terracotta, Friendly)
+     Soft and approachable but still professional
+     ============================================================ */
+  .di {
+    background: #faf6f1;
+    padding: 80px 80px 100px;
+    position: relative;
+  }
+  .di::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(194,114,85,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .di .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+  .di .sn {
+    position: absolute; top: 40px; right: 60px;
+    font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 500;
+    letter-spacing: 2px; color: rgba(0,0,0,0.2); z-index: 1;
+  }
+  .di .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 80px;
+    border-top: 1px solid rgba(194,114,85,0.2);
+    z-index: 1;
+    font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(0,0,0,0.3);
+  }
+  .di .brand .arr { color: #c27255; font-size: 24px; }
+  .di .h {
+    font-family: 'Outfit', sans-serif; font-weight: 700;
+    color: #2d2a26; line-height: 1.1;
+    margin-bottom: 32px; letter-spacing: -1px;
+  }
+  .di .h.lg { font-size: 74px; }
+  .di .h.xl { font-size: 90px; }
+  .di .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 400;
+    line-height: 1.55; color: rgba(45,42,38,0.6);
+  }
+  .di .p b { font-weight: 600; color: rgba(45,42,38,0.9); }
+  .di .sec-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px; font-weight: 700;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: #c27255;
+    margin-bottom: 28px;
+  }
+  .di .terra-text { color: #c27255; }
+  .di .card {
+    background: #fff;
+    border: 1px solid rgba(194,114,85,0.15);
+    border-radius: 20px;
+    padding: 44px 48px;
+    box-shadow: 0 4px 20px rgba(194,114,85,0.06);
+  }
+  .di .card-accent {
+    background: linear-gradient(135deg, rgba(194,114,85,0.1) 0%, rgba(194,114,85,0.04) 100%);
+    border: 1px solid rgba(194,114,85,0.2);
+    border-radius: 20px;
+    padding: 44px 48px;
+  }
+  .di .card-left {
+    background: #fff;
+    border-left: 4px solid #c27255;
+    padding: 36px 44px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 2px 12px rgba(194,114,85,0.05);
+  }
+  .di .big-quote {
+    font-family: 'Outfit', sans-serif;
+    font-size: 70px; font-weight: 700;
+    color: #2d2a26;
+    line-height: 1.15;
+    position: relative;
+    padding-left: 60px;
+    letter-spacing: -1px;
+  }
+  .di .big-quote::before {
+    content: '"';
+    position: absolute;
+    left: 0; top: -15px;
+    font-size: 150px;
+    color: #c27255;
+    opacity: 0.2;
+    line-height: 1;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+  }
+  .di .soft-line {
+    width: 80px; height: 4px;
+    background: linear-gradient(90deg, #c27255, #d4967d);
+    border-radius: 2px;
+    margin: 40px 0;
+  }
+  .di.cen { text-align: center; }
+  .di.cen .sc { align-items: center; justify-content: center; }
+  .di.cen .soft-line { margin: 40px auto; }
+  .di.acc-bg { background: #c27255; }
+  .di.acc-bg::before { background: radial-gradient(ellipse at 50% 80%, rgba(255,255,255,0.1) 0%, transparent 60%); }
+  .di.acc-bg .h { color: #fff; }
+  .di.acc-bg .p { color: rgba(255,255,255,0.85); }
+  .di.acc-bg .p b { color: #fff; }
+  .di.acc-bg .sec-label { color: rgba(255,255,255,0.7); }
+  .di.acc-bg .brand { border-top-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
+  .di.acc-bg .brand .arr { color: #fff; }
+  .di.acc-bg .sn { color: rgba(255,255,255,0.4); }
+  .di.acc-bg .card { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.2); box-shadow: none; }
+  .di.acc-bg .card .p { color: rgba(255,255,255,0.95); }
+
+  /* ============================================================
+     DESIGN J — DIGITAL/NEON TECH (Data Dashboard Layout)
+     Horizontal bands, giant glowing numbers, grid overlays, terminal blocks
+     ============================================================ */
+  .dj {
+    background: #050510;
+    padding: 80px 70px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .dj::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg, rgba(0,200,255,0.03) 1px, transparent 1px),
+      linear-gradient(rgba(0,200,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dj::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,200,255,0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .dj .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+
+  .dj .sn {
+    position: absolute; top: 40px; left: 70px;
+    font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500;
+    letter-spacing: 3px; color: rgba(0,200,255,0.5); z-index: 1;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .dj .sn::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: #00c8ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00c8ff;
+  }
+
+  .dj .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 70px;
+    border-top: 1px solid rgba(0,200,255,0.15);
+    z-index: 1;
+    font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(0,200,255,0.4);
+  }
+  .dj .brand .arr { color: #00c8ff; font-size: 20px; }
+
+  .dj .h {
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    color: #FFFFFF; line-height: 1.05;
+    margin-bottom: 28px; letter-spacing: -1px;
+  }
+  .dj .h.lg { font-size: 72px; }
+  .dj .h.xl { font-size: 88px; }
+  .dj .cyan { color: #00c8ff; text-shadow: 0 0 30px rgba(0,200,255,0.4); }
+
+  .dj .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 42px; font-weight: 400;
+    line-height: 1.5; color: rgba(255,255,255,0.55);
+  }
+  .dj .p b { font-weight: 600; color: rgba(255,255,255,0.9); }
+
+  /* Horizontal band */
+  .dj .band {
+    background: rgba(0,200,255,0.06);
+    border-top: 1px solid rgba(0,200,255,0.2);
+    border-bottom: 1px solid rgba(0,200,255,0.2);
+    padding: 36px 44px;
+    margin: 24px -70px;
+    width: calc(100% + 140px);
+  }
+
+  /* Terminal block */
+  .dj .terminal {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,200,255,0.25);
+    border-radius: 8px;
+    padding: 32px 40px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .dj .terminal::before {
+    content: '>';
+    color: #00c8ff;
+    margin-right: 16px;
+    font-weight: 700;
+  }
+  .dj .terminal .p { font-family: 'JetBrains Mono', monospace; font-size: 38px; }
+
+  /* Status indicator */
+  .dj .status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px; font-weight: 600;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: #00c8ff;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .dj .status::before {
+    content: '//';
+    opacity: 0.5;
+  }
+
+  /* Data metric style */
+  .dj .metric {
+    text-align: center;
+    padding: 40px;
+  }
+  .dj .metric-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 120px; font-weight: 900;
+    color: #00c8ff;
+    text-shadow: 0 0 40px rgba(0,200,255,0.5);
+    line-height: 1;
+  }
+  .dj .metric-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  .dj.cen { text-align: center; }
+  .dj.cen .sc { align-items: center; justify-content: center; }
+
+  /* ============================================================
+     DESIGN L — STREET KINETIC (Poster/Zine Layout)
+     Angled elements, overlapping layers, giant bg numbers, tape strips
+     ============================================================ */
+  .dl {
+    background: #111;
+    padding: 70px 60px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Giant background word */
+  .dl .bg-word {
+    position: absolute;
+    bottom: -60px;
+    left: -30px;
+    font-family: 'Sora', sans-serif;
+    font-size: 280px;
+    font-weight: 800;
+    color: rgba(180,255,50,0.06);
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    letter-spacing: -10px;
+  }
+
+  .dl .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+
+  .dl .sn {
+    position: absolute; top: 40px; right: 50px;
+    font-family: 'Sora', sans-serif; font-size: 48px; font-weight: 800;
+    color: rgba(180,255,50,0.3); z-index: 1;
+  }
+
+  .dl .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 60px;
+    border-top: 4px solid rgba(180,255,50,0.3);
+    z-index: 1;
+    font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+  }
+  .dl .brand .arr { color: #b4ff32; font-size: 24px; }
+
+  .dl .h {
+    font-family: 'Sora', sans-serif; font-weight: 800;
+    color: #FFFFFF; line-height: 0.95;
+    margin-bottom: 24px; letter-spacing: -3px;
+    text-transform: uppercase;
+  }
+  .dl .h.lg { font-size: 80px; }
+  .dl .h.xl { font-size: 100px; }
+  .dl .lime { color: #b4ff32; }
+
+  .dl .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 40px; font-weight: 400;
+    line-height: 1.5; color: rgba(255,255,255,0.6);
+  }
+  .dl .p b { font-weight: 700; color: #fff; }
+
+  /* Angled block */
+  .dl .angled {
+    transform: rotate(-2deg);
+    margin: 20px -20px;
+  }
+
+  /* Tape strip accent */
+  .dl .tape {
+    background: #b4ff32;
+    color: #111;
+    padding: 16px 32px;
+    font-family: 'Sora', sans-serif;
+    font-size: 30px; font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    transform: rotate(-1deg);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  }
+
+  /* Highlight marker style */
+  .dl .marker {
+    background: linear-gradient(180deg, transparent 50%, rgba(180,255,50,0.3) 50%);
+    padding: 0 8px;
+  }
+
+  /* Stacked overlapping cards */
+  .dl .stack {
+    position: relative;
+    margin: 30px 0;
+  }
+  .dl .stack-card {
+    background: rgba(255,255,255,0.05);
+    border: 3px solid rgba(255,255,255,0.15);
+    padding: 36px 40px;
+  }
+  .dl .stack-card.top {
+    position: relative;
+    z-index: 2;
+    background: #1a1a1a;
+    border-color: #b4ff32;
+    transform: rotate(1deg);
+  }
+  .dl .stack-card.bottom {
+    position: absolute;
+    top: 12px; left: 12px; right: -12px;
+    bottom: -12px;
+    z-index: 1;
+    transform: rotate(-1deg);
+  }
+
+  /* Color block that breaks grid */
+  .dl .color-block {
+    background: #b4ff32;
+    color: #111;
+    padding: 44px 50px;
+    margin: 20px -60px;
+    width: calc(100% + 120px);
+  }
+  .dl .color-block .h { color: #111; }
+  .dl .color-block .p { color: rgba(0,0,0,0.7); }
+
+  .dl.cen { text-align: center; }
+  .dl.cen .sc { align-items: center; justify-content: center; }
+
+  /* ============================================================
+     DESIGN M — WARM ORGANIC (Clean, Warm, Rounded)
+     Cream/terracotta colorway, organic rounded cards, clean layout
+     ============================================================ */
+  .dm {
+    background: #f5f0e6;
+    padding: 80px 80px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .dm::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(196,113,61,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .dm .sc { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+
+  .dm .sn {
+    position: absolute; top: 40px; right: 60px;
+    font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 500;
+    letter-spacing: 2px; color: rgba(0,0,0,0.2); z-index: 1;
+  }
+
+  .dm .brand {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 90px;
+    display: flex; align-items: center; justify-content: center; gap: 24px;
+    padding: 0 80px;
+    border-top: 1px solid rgba(196,113,61,0.2);
+    z-index: 1;
+    font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: rgba(0,0,0,0.3);
+  }
+  .dm .brand .arr { color: #c4713d; font-size: 24px; }
+
+  .dm .h {
+    font-family: 'Outfit', sans-serif; font-weight: 700;
+    color: #2a2520; line-height: 1.1;
+    margin-bottom: 28px; letter-spacing: -1px;
+  }
+  .dm .h.lg { font-size: 74px; }
+  .dm .h.xl { font-size: 90px; }
+  .dm .rust { color: #c4713d; }
+
+  .dm .p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 44px; font-weight: 400;
+    line-height: 1.55; color: rgba(42,37,32,0.6);
+  }
+  .dm .p b { font-weight: 600; color: rgba(42,37,32,0.9); }
+
+  /* Section label - clean, no rotation */
+  .dm .sec-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px; font-weight: 700;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: #c4713d;
+    margin-bottom: 24px;
+  }
+
+  /* Clean card with rounded corners */
+  .dm .card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 44px 48px;
+    box-shadow: 0 4px 24px rgba(196,113,61,0.08);
+  }
+
+  /* Accent card with terracotta tint */
+  .dm .card-accent {
+    background: linear-gradient(135deg, rgba(196,113,61,0.08) 0%, rgba(196,113,61,0.03) 100%);
+    border: 1px solid rgba(196,113,61,0.15);
+    border-radius: 20px;
+    padding: 44px 48px;
+  }
+
+  /* Card with left border accent */
+  .dm .card-left {
+    background: #fff;
+    border-left: 4px solid #c4713d;
+    padding: 36px 44px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 2px 16px rgba(196,113,61,0.06);
+  }
+
+  /* Soft divider line */
+  .dm .soft-line {
+    width: 80px; height: 4px;
+    background: linear-gradient(90deg, #c4713d, #d4967d);
+    border-radius: 2px;
+    margin: 36px 0;
+  }
+
+  .dm.cen { text-align: center; }
+  .dm.cen .sc { align-items: center; justify-content: center; }
+  .dm.cen .soft-line { margin: 36px auto; }
+
+  /* Dark variation */
+  .dm.dk {
+    background: #2a2520;
+  }
+  .dm.dk::before { background: radial-gradient(ellipse at 50% 80%, rgba(196,113,61,0.08) 0%, transparent 60%); }
+  .dm.dk .h { color: #f5f0e6; }
+  .dm.dk .p { color: rgba(245,240,230,0.6); }
+  .dm.dk .p b { color: rgba(245,240,230,0.9); }
+  .dm.dk .brand { border-top-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.3); }
+  .dm.dk .sn { color: rgba(255,255,255,0.2); }
+  .dm.dk .sec-label { color: #d4967d; }
+  .dm.dk .card { background: #3a3530; box-shadow: none; }
+  .dm.dk .card-accent { background: rgba(196,113,61,0.1); border-color: rgba(196,113,61,0.2); }
+  .dm.dk .card-left { background: #3a3530; box-shadow: none; }
+
+  /* ============================================================
+     DESIGN N — iOS NOTES STYLE (Digital Journal)
+     Paper: #F5F5F0, Accent: #F2C94C (Notes Yellow)
+     ============================================================ */
+  .dn { background: #F5F5F0; position: relative; display: flex; flex-direction: column; }
+  .dn .notes-header { display: flex; align-items: center; justify-content: space-between; padding: 48px 56px 32px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .dn .notes-back { display: flex; align-items: center; gap: 8px; font-size: 34px; font-weight: 400; color: #F2C94C; }
+  .dn .notes-back svg { width: 24px; height: 24px; stroke: #F2C94C; stroke-width: 3; fill: none; }
+  .dn .notes-actions { display: flex; gap: 32px; }
+  .dn .notes-actions svg { width: 44px; height: 44px; stroke: #F2C94C; stroke-width: 1.5; fill: none; }
+  .dn .status-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 56px 12px; font-size: 28px; font-weight: 600; color: #1a1a1a; }
+  .dn .status-bar .time { font-weight: 600; }
+  .dn .status-bar .icons { display: flex; align-items: center; gap: 8px; }
+  .dn .status-bar .icons svg { width: 32px; height: 32px; fill: #1a1a1a; }
+  .dn .status-bar .battery { width: 44px; height: 20px; border: 2px solid #1a1a1a; border-radius: 4px; position: relative; margin-left: 4px; }
+  .dn .status-bar .battery::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); width: 4px; height: 10px; background: #1a1a1a; border-radius: 0 2px 2px 0; }
+  .dn .status-bar .battery-fill { position: absolute; left: 2px; top: 2px; bottom: 2px; width: 70%; background: #1a1a1a; border-radius: 2px; }
+  .dn.dark .status-bar { color: #ffffff; }
+  .dn.dark .status-bar .icons svg { fill: #ffffff; }
+  .dn.dark .status-bar .battery { border-color: #ffffff; }
+  .dn.dark .status-bar .battery::after { background: #ffffff; }
+  .dn.dark .status-bar .battery-fill { background: #ffffff; }
+  .dn .battery-fill.red { background: #ef4444 !important; }
+  .dn .battery-fill.green { background: #22c55e !important; }
+  .dn.dark .battery-fill.red { background: #ef4444 !important; }
+  .dn.dark .battery-fill.green { background: #22c55e !important; }
+  .dn .swipe-indicator { display: flex; align-items: center; gap: 10px; font-size: 32px; font-weight: 400; color: #F2C94C; }
+  .dn .swipe-indicator .share-icon { width: 40px; height: 40px; stroke: #F2C94C; stroke-width: 1.5; fill: none; transform: rotate(90deg); }
+  .dn .note-content { flex: 1; padding: 48px 56px; display: flex; flex-direction: column; }
+  .dn .note-title { font-size: 64px; font-weight: 700; color: #1a1a1a; line-height: 1.15; margin-bottom: 40px; letter-spacing: -1px; }
+  .dn .note-title .highlight { background: #F2C94C; padding: 0 12px; display: inline; }
+  .dn .note-body { font-size: 38px; font-weight: 400; color: #3a3a3a; line-height: 1.6; }
+  .dn .note-body b { font-weight: 700; color: #1a1a1a; }
+  .dn .note-body .accent { color: #E8762B; font-weight: 600; }
+  .dn .note-list { list-style: none; margin-top: 32px; }
+  .dn .note-list li { font-size: 38px; color: #3a3a3a; line-height: 1.6; padding-left: 48px; position: relative; margin-bottom: 20px; }
+  .dn .note-list li::before { content: ''; position: absolute; left: 0; top: 18px; width: 16px; height: 16px; background: #F2C94C; border-radius: 50%; }
+  .dn.dark .note-list li { color: rgba(255,255,255,0.75); }
+  .dn .checklist { list-style: none; margin-top: 32px; }
+  .dn .checklist li { font-size: 38px; color: #3a3a3a; line-height: 1.5; padding-left: 64px; position: relative; margin-bottom: 24px; }
+  .dn .checklist li .checkbox { position: absolute; left: 0; top: 8px; width: 36px; height: 36px; border: 3px solid #c0c0c0; border-radius: 50%; }
+  .dn .checklist li.checked .checkbox { background: #F2C94C; border-color: #F2C94C; }
+  .dn .checklist li.checked .checkbox::after { content: '✓'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 22px; font-weight: 700; color: #1a1a1a; }
+  .dn .checklist li.checked { color: #888; text-decoration: line-through; }
+  .dn.dark .checklist li { color: rgba(255,255,255,0.75); }
+  .dn.dark .checklist li .checkbox { border-color: #555; }
+  .dn.dark .checklist li.checked { color: rgba(255,255,255,0.4); }
+  .dn .note-emphasis { background: rgba(242, 201, 76, 0.15); border-left: 6px solid #F2C94C; padding: 36px 40px; margin-top: 40px; font-size: 42px; font-weight: 600; color: #1a1a1a; line-height: 1.4; }
+  .dn .visual-zone { background: #1a1a1a; margin: 40px -56px; padding: 80px 56px; display: flex; align-items: center; justify-content: center; }
+  .dn .visual-zone .visual-text { font-size: 48px; font-weight: 700; color: #ffffff; text-align: center; line-height: 1.3; }
+  .dn .visual-zone .visual-text .pop { color: #F2C94C; }
+  .dn.split { flex-direction: row; }
+  .dn.split .note-side { width: 55%; background: #F5F5F0; display: flex; flex-direction: column; }
+  .dn.split .visual-side { width: 45%; background: #1a1a1a; display: flex; align-items: center; justify-content: center; padding: 60px; }
+  .dn.split .visual-side .big-stat { text-align: center; }
+  .dn.split .visual-side .big-stat .number { font-size: 180px; font-weight: 800; color: #F2C94C; line-height: 1; }
+  .dn.split .visual-side .big-stat .label { font-size: 36px; font-weight: 500; color: rgba(255,255,255,0.7); margin-top: 16px; }
+  .dn .note-footer { padding: 32px 56px; border-top: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; font-size: 24px; font-weight: 500; color: rgba(0,0,0,0.35); letter-spacing: 1px; }
+  .dn .note-footer .brand { display: flex; align-items: center; gap: 16px; }
+  .dn.dark { background: #1a1a1a; }
+  .dn.dark .notes-header { border-bottom-color: rgba(255,255,255,0.1); }
+  .dn.dark .note-title { color: #ffffff; }
+  .dn.dark .note-body { color: rgba(255,255,255,0.75); }
+  .dn.dark .note-body b { color: #ffffff; }
+  .dn.dark .note-emphasis { background: rgba(242, 201, 76, 0.15); color: #ffffff; }
+  .dn.dark .note-footer { border-top-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     DESIGN A — WARM EDITORIAL
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design A — Warm Editorial</div>
+  <div class="design-row">
+    <div class="slide-wrap"><div class="sb da"><div class="vbar"></div><div class="sc"><div class="hook-lbl">A Father's Words</div><div class="qi" style="font-size:86px;margin-bottom:48px;line-height:1.12">'You're Not a Proud<br>Dental Technician'</div><p class="p">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da"><div class="sn">02 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Old Guard<br>Perspective</div><p class="p">He saw digital as <b>abandoning tradition.</b> Speed and efficiency meant sacrificing the art. <em>'Our work, our hands'</em>—that was the mentality.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da"><div class="sn">03 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Tension</div><p class="p">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p><p class="p" style="margin-top:36px;color:#C8915A;font-weight:500;font-size:56px">The math didn't work.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da" style="padding-left:120px"><div class="qm">"</div><div class="sn">04 of 09</div><div class="sc"><div class="qi" style="font-size:78px;margin-bottom:44px">'That's Not How<br>This Industry Works'</div><p class="p">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p><p class="p" style="margin-top:24px">We were speaking different languages.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da cen"><div class="sn">05 of 09</div><div class="sc"><div class="aline"></div><div class="hook-lbl">The Breaking Point</div><div class="qi" style="font-size:82px;margin-bottom:48px;text-align:center">'You're not a proud<br>dental technician.'</div><p class="p" style="text-align:center">I thought he was insulting me.<br>Maybe he was. I wasn't sure.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da"><div class="sn">06 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Evolution</div><p class="p">Years passed. The lab grew. Digital workflows <b>proved themselves.</b></p><p class="p" style="margin-top:40px;font-size:56px;color:#F2F0EC;font-weight:400">And one day, he came to me with different words.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da" style="padding-left:120px;background:linear-gradient(160deg,#12110F,#1A1610 50%,#0D0D0F)"><div class="qm" style="opacity:.3;font-size:300px">"</div><div class="sn">07 of 09</div><div class="sc"><div class="qi" style="font-size:92px;margin-bottom:44px;color:#D4A76A">'You're a Proud<br>Businessman'</div><div style="width:70px;height:4px;background:linear-gradient(90deg,#C8915A,#D4A76A);border-radius:2px;margin-bottom:40px"></div><p class="p">That was his compliment. He finally saw that <b>business acumen wasn't betraying the craft</b>—it was the thing that would save it.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da cen"><div class="sn">08 of 09</div><div class="sc"><div class="aline"></div><div class="h lg" style="margin-bottom:48px;text-align:center">The Real Lesson</div><p class="p" style="text-align:center">Craftsmanship without business sense <b>doesn't scale.</b></p><p class="p" style="text-align:center;margin-top:12px">Excellence without efficiency becomes <b>a museum piece.</b></p><div class="divr" style="margin:40px auto"></div><p class="p" style="text-align:center;font-size:58px;color:#C8915A;font-weight:500">You need both to survive.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb da cen" style="background:linear-gradient(160deg,#0D0D0F,#12110F)"><div class="sn no-swipe">09 of 09</div><div class="sc"><div class="aline"></div><div class="h lg" style="font-size:76px;margin-bottom:36px;text-align:center">Honor the Craft<br>by Growing<br>the Business</div><div class="divr" style="margin:36px auto"></div><p class="p" style="text-align:center;font-size:46px;line-height:1.7">The best way to respect what came before isn't to freeze it in time. It's to make sure it's <b>still here for the next generation.</b></p><div class="divr" style="margin:36px auto"></div><p class="cta">🎙 Digital by Design Podcast<br><span style="color:#C8915A">Link in comments</span></p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN B — MODERN INDUSTRIAL
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design B — Modern Industrial</div>
+  <div class="design-row">
+    <div class="slide-wrap"><div class="sb db dk"><div class="vbar" style="background:#F0EDEA"></div><div class="sc"><div class="hook-lbl" style="color:rgba(240,237,234,0.5);border-bottom-color:rgba(255,255,255,0.15)">A Father's Words</div><div class="qi" style="font-size:84px;margin-bottom:48px;color:#F0EDEA">'You're Not a Proud<br>Dental Technician'</div><p class="p">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db"><div class="sn">02 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Old Guard<br>Perspective</div><p class="p">He saw digital as <b>abandoning tradition.</b> Speed and efficiency meant sacrificing the art. <em>'Our work, our hands'</em>—that was the mentality.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db"><div class="sn">03 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Tension</div><p class="p">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p><p class="callout" style="margin-top:36px">The math didn't work.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db" style="padding-left:120px"><div class="qm">"</div><div class="sn">04 of 09</div><div class="sc"><div class="qi" style="font-size:78px;margin-bottom:44px">'That's Not How<br>This Industry Works'</div><p class="p">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p><p class="p" style="margin-top:24px">We were speaking different languages.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db dk cen"><div class="sn">05 of 09</div><div class="sc"><div class="aline"></div><div class="hook-lbl" style="color:rgba(240,237,234,0.7);border-bottom-color:rgba(255,255,255,0.15)">The Breaking Point</div><div class="qi" style="font-size:80px;margin-bottom:48px;text-align:center;color:#F0EDEA">'You're not a proud<br>dental technician.'</div><p class="p" style="text-align:center">I thought he was insulting me.<br>Maybe he was. I wasn't sure.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db"><div class="sn">06 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Evolution</div><p class="p">Years passed. The lab grew. Digital workflows <b>proved themselves.</b></p><p class="callout" style="margin-top:40px;font-size:52px">And one day, he came to me with different words.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db dk" style="padding-left:120px"><div class="qm" style="opacity:.1;font-size:300px;color:#F0EDEA">"</div><div class="sn">07 of 09</div><div class="sc"><div class="qi" style="font-size:90px;margin-bottom:44px;color:#E8C99B">'You're a Proud<br>Businessman'</div><div class="divr" style="background:rgba(240,237,234,0.25);margin-bottom:40px"></div><p class="p">That was his compliment. He finally saw that <b>business acumen wasn't betraying the craft</b>—it was the thing that would save it.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db cen"><div class="sn">08 of 09</div><div class="sc"><div class="aline"></div><div class="h lg" style="margin-bottom:48px;text-align:center">The Real Lesson</div><p class="p" style="text-align:center">Craftsmanship without business sense <b>doesn't scale.</b></p><p class="p" style="text-align:center;margin-top:12px">Excellence without efficiency becomes <b>a museum piece.</b></p><div class="divr" style="margin:40px auto"></div><p class="callout" style="text-align:center">You need both to survive.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb db dk cen"><div class="sn no-swipe">09 of 09</div><div class="sc"><div class="aline"></div><div class="h lg" style="font-size:76px;margin-bottom:36px;text-align:center;color:#F0EDEA">Honor the Craft<br>by Growing<br>the Business</div><div class="divr" style="margin:36px auto"></div><p class="p" style="text-align:center;font-size:46px;line-height:1.7">The best way to respect what came before isn't to freeze it in time. It's to make sure it's <b>still here for the next generation.</b></p><div class="divr" style="margin:36px auto"></div><p class="cta">🎙 Digital by Design Podcast<br><span style="color:#E8C99B">Link in comments</span></p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN C — DIGITAL PRECISION (no graphics)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design C — Digital Precision</div>
+  <div class="design-row">
+    <div class="slide-wrap"><div class="sb dc"><div class="vbar"></div><div class="sc"><div class="hook-lbl">A Father's Words</div><div class="qi" style="font-size:84px;margin-bottom:48px;color:#FFFFFF">'You're Not a Proud<br>Dental Technician'</div><p class="p">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc lt"><div class="sn">02 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Old Guard<br>Perspective</div><p class="p">He saw digital as <b>abandoning tradition.</b> Speed and efficiency meant sacrificing the art. <em>'Our work, our hands'</em>—that was the mentality.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc"><div class="sn">03 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Tension</div><p class="p">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p><p class="callout" style="margin-top:36px">The math didn't work.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc lt" style="padding-left:120px"><div class="qm">"</div><div class="sn">04 of 09</div><div class="sc"><div class="qi" style="font-size:78px;margin-bottom:44px">'That's Not How<br>This Industry Works'</div><p class="p">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p><p class="p" style="margin-top:24px">We were speaking different languages.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc acc cen"><div class="sn">05 of 09</div><div class="sc"><div class="aline"></div><div class="hook-lbl">The Breaking Point</div><div class="qi" style="font-size:80px;margin-bottom:48px;text-align:center;color:#FFF">'You're not a proud<br>dental technician.'</div><p class="p" style="text-align:center">I thought he was insulting me.<br>Maybe he was. I wasn't sure.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc lt"><div class="sn">06 of 09</div><div class="sc"><div class="aline"></div><div class="h lg">The Evolution</div><p class="p">Years passed. The lab grew. Digital workflows <b>proved themselves.</b></p><p class="callout" style="margin-top:40px;font-size:52px">And one day, he came to me with different words.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc acc" style="padding-left:120px"><div class="qm" style="opacity:.08;font-size:320px;color:#FFF">"</div><div class="sn">07 of 09</div><div class="sc"><div class="qi" style="font-size:90px;margin-bottom:44px;color:#FFF">'You're a Proud<br>Businessman'</div><div class="divr" style="margin-bottom:40px"></div><p class="p">That was his compliment. He finally saw that <b>business acumen wasn't betraying the craft</b>—it was the thing that would save it.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc cen"><div class="sn">08 of 09</div><div class="sc"><div class="aline"></div><div class="h lg" style="margin-bottom:48px;text-align:center">The Real Lesson</div><p class="p" style="text-align:center">Craftsmanship without business sense <b>doesn't scale.</b></p><p class="p" style="text-align:center;margin-top:12px">Excellence without efficiency becomes <b>a museum piece.</b></p><div class="divr" style="margin:40px auto"></div><p class="callout" style="text-align:center">You need both to survive.</p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+    <div class="slide-wrap"><div class="sb dc acc cen"><div class="sn no-swipe">09 of 09</div><div class="sc"><div class="aline"></div><div class="h lg" style="font-size:76px;margin-bottom:36px;text-align:center">Honor the Craft<br>by Growing<br>the Business</div><div class="divr" style="margin:36px auto"></div><p class="p" style="text-align:center;font-size:46px;line-height:1.7">The best way to respect what came before isn't to freeze it in time. It's to make sure it's <b>still here for the next generation.</b></p><div class="divr" style="margin:36px auto"></div><p class="cta">🎙 Digital by Design Podcast<br><span style="color:#00B4D8">Link in comments</span></p></div><div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div></div></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN D — BOLD & LOUD
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design D — Bold & Loud</div>
+  <div class="design-row">
+
+    <!-- D1: HOOK — coral background, big bold text -->
+    <div class="slide-wrap"><div class="sb dd coral-bg">
+      <div class="side-block" style="left:0;background:#FFFFFF;opacity:0.15"></div>
+      <div class="sc">
+        <div class="hook-lbl" style="background:rgba(255,255,255,0.2);color:#FFF">A Father's Words</div>
+        <div class="qi" style="font-size:94px;margin-bottom:48px;color:#FFF">'You're Not<br>a Proud Dental<br>Technician'</div>
+        <p class="p">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D2: White slide -->
+    <div class="slide-wrap"><div class="sb dd wht">
+      <div class="side-block" style="left:0"></div>
+      <div class="sn">02 of 09</div>
+      <div class="sc">
+        <div class="aline"></div>
+        <div class="h lg" style="color:#111">The Old Guard<br>Perspective</div>
+        <p class="p">He saw digital as <b>abandoning tradition.</b> Speed and efficiency meant sacrificing the art. <em>'Our work, our hands'</em>—that was the mentality.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D3: Dark with lime callout -->
+    <div class="slide-wrap"><div class="sb dd lime">
+      <div class="side-block" style="left:0"></div>
+      <div class="sn">03 of 09</div>
+      <div class="sc">
+        <div class="aline"></div>
+        <div class="h lg">The Tension</div>
+        <p class="p">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <p class="callout" style="margin-top:36px">The math didn't work.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D4: White quote slide -->
+    <div class="slide-wrap"><div class="sb dd wht" style="padding-left:120px">
+      <div class="qm">"</div>
+      <div class="sn">04 of 09</div>
+      <div class="sc">
+        <div class="qi" style="font-size:82px;margin-bottom:44px">'That's Not How<br>This Industry<br>Works'</div>
+        <p class="p">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+        <p class="p" style="margin-top:24px">We were speaking different languages.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D5: BREAKING POINT — coral bg, centered, maximum impact -->
+    <div class="slide-wrap"><div class="sb dd coral-bg cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc">
+        <div class="aline"></div>
+        <div class="hook-lbl" style="background:rgba(255,255,255,0.15);color:#FFF">The Breaking Point</div>
+        <div class="qi" style="font-size:88px;margin-bottom:48px;text-align:center;color:#FFF">'You're not<br>a proud dental<br>technician.'</div>
+        <p class="p" style="text-align:center">I thought he was insulting me.<br>Maybe he was. I wasn't sure.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D6: Dark with coral accent -->
+    <div class="slide-wrap"><div class="sb dd coral">
+      <div class="side-block" style="left:0"></div>
+      <div class="sn">06 of 09</div>
+      <div class="sc">
+        <div class="aline"></div>
+        <div class="h lg">The<br>Evolution</div>
+        <p class="p">Years passed. The lab grew. Digital workflows <b>proved themselves.</b></p>
+        <p class="callout" style="margin-top:40px;font-size:54px">And one day, he came to me with different words.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D7: PIVOTAL — lime accent on dark, maximum drama -->
+    <div class="slide-wrap"><div class="sb dd lime" style="padding-left:120px">
+      <div class="qm">"</div>
+      <div class="sn">07 of 09</div>
+      <div class="sc">
+        <div class="qi" style="font-size:96px;margin-bottom:44px">'You're a Proud<br>Businessman'</div>
+        <div class="divr" style="margin-bottom:40px"></div>
+        <p class="p">That was his compliment. He finally saw that <b>business acumen wasn't betraying the craft</b>—it was the thing that would save it.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D8: White, centered lesson -->
+    <div class="slide-wrap"><div class="sb dd wht cen">
+      <div class="sn">08 of 09</div>
+      <div class="sc">
+        <div class="aline"></div>
+        <div class="h lg" style="margin-bottom:48px;text-align:center">The Real<br>Lesson</div>
+        <p class="p" style="text-align:center">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        <p class="p" style="text-align:center;margin-top:12px">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        <div class="divr" style="margin:40px auto"></div>
+        <p class="callout" style="text-align:center">You need both to survive.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- D9: CTA — dark with coral accent -->
+    <div class="slide-wrap"><div class="sb dd coral cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc">
+        <div class="aline"></div>
+        <div class="h xl" style="margin-bottom:36px;text-align:center">Honor<br>the Craft.</div>
+        <div class="divr" style="margin:24px auto 36px"></div>
+        <p class="p" style="text-align:center;font-size:46px;line-height:1.65">The best way to respect what came before isn't to freeze it in time. It's to make sure it's <b>still here for the next generation.</b></p>
+        <div class="divr" style="margin:36px auto"></div>
+        <p class="cta" style="color:rgba(255,255,255,0.4)">🎙 Digital by Design Podcast<br><span style="color:#FF6B5E">Link in comments</span></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN E — STRUCTURAL VARIETY (Redesigned for 4:5 format)
+     Full-width layouts, vertically balanced compositions
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design E — Structural Variety</div>
+  <div class="design-row">
+
+    <!-- E1: HOOK — with card for body text -->
+    <div class="slide-wrap"><div class="sb de">
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label" style="text-align:center">A Father's Words</div>
+        <div class="h xl" style="text-align:center;margin-bottom:56px">'You're Not a Proud<br><span class="grad-text">Dental Technician</span>'</div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:44px 48px">
+          <p class="p" style="text-align:center;font-size:46px;color:rgba(255,255,255,0.85)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E2: OLD GUARD — Full-width stacked -->
+    <div class="slide-wrap"><div class="sb de">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:48px">He saw digital as <span class="grad-text">abandoning tradition.</span></div>
+        <p class="p" style="font-size:48px;margin-bottom:40px">Speed and efficiency meant sacrificing the art.</p>
+        <div style="background:rgba(255,255,255,0.03);border-left:4px solid #e11d48;padding:40px 48px;border-radius:0 16px 16px 0">
+          <p class="p" style="font-size:52px;color:rgba(255,255,255,0.85);font-style:italic">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E3: THE TENSION — with accent card -->
+    <div class="slide-wrap"><div class="sb de">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Tension</div>
+        <p class="p" style="font-size:48px;margin-bottom:48px;color:rgba(255,255,255,0.8)">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div style="background:linear-gradient(135deg,rgba(225,29,72,0.12),rgba(251,113,133,0.08));border:1px solid rgba(225,29,72,0.25);border-radius:16px;padding:48px;text-align:center">
+          <div class="h lg grad-text" style="margin-bottom:0">The math didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E4: QUOTE SLIDE — with card treatment for body -->
+    <div class="slide-wrap"><div class="sb de">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="big-quote" style="font-size:76px;padding-left:80px">'That's Not How This Industry Works'</div>
+        <div style="width:100px;height:4px;background:linear-gradient(90deg,#e11d48,#fb7185);border-radius:2px;margin:48px 0 48px 80px"></div>
+        <div style="background:rgba(255,255,255,0.03);border-left:4px solid rgba(255,255,255,0.15);padding:40px 48px;border-radius:0 16px 16px 0">
+          <p class="p" style="font-size:46px;color:rgba(255,255,255,0.8)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+          <p class="p" style="margin-top:28px;font-size:46px;color:rgba(255,255,255,0.7)">We were speaking different languages.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E5: DRAMATIC CENTER — Breaking point with card -->
+    <div class="slide-wrap"><div class="sb de acc-bg cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Breaking Point</div>
+        <p class="p" style="font-size:44px;color:rgba(255,255,255,0.7);margin-bottom:36px">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:48px">'You're not a proud<br><span class="grad-text">dental technician.</span>'</div>
+        <div style="background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:40px 48px;margin-top:16px">
+          <p class="p" style="font-size:46px;color:rgba(255,255,255,0.8)">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E6: EVOLUTION — with card for the setup -->
+    <div class="slide-wrap"><div class="sb de">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Evolution</div>
+        <div class="h lg" style="margin-bottom:40px">Years passed. The lab grew.</div>
+        <div style="background:rgba(255,255,255,0.03);border-left:4px solid #22d3ee;padding:36px 44px;border-radius:0 16px 16px 0;margin-bottom:48px">
+          <p class="p" style="font-size:46px;color:rgba(255,255,255,0.85)">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="font-size:50px;color:rgba(255,255,255,0.9)">And one day, he came to me with <b style="color:#e11d48">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E7: THE CLIMAX — The Shift. Visual peak with card. -->
+    <div class="slide-wrap"><div class="sb de acc-bg cen">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Shift</div>
+        <p class="p" style="font-size:44px;color:rgba(255,255,255,0.7);margin-bottom:32px">He said:</p>
+        <div class="h xl" style="margin-bottom:48px">'You're a Proud<br><span class="grad-text">Businessman.</span>'</div>
+        <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(225,29,72,0.3);border-radius:16px;padding:44px 48px">
+          <p class="p" style="font-size:46px;color:rgba(255,255,255,0.9)">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E8: LESSON — with stacked cards for each point -->
+    <div class="slide-wrap"><div class="sb de">
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Real Lesson</div>
+        <div style="background:rgba(255,255,255,0.03);border-left:4px solid #e11d48;padding:36px 44px;border-radius:0 16px 16px 0;margin-bottom:28px">
+          <p class="p" style="font-size:46px;color:rgba(255,255,255,0.9)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border-left:4px solid #22d3ee;padding:36px 44px;border-radius:0 16px 16px 0;margin-bottom:48px">
+          <p class="p" style="font-size:46px;color:rgba(255,255,255,0.9)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div style="text-align:center">
+          <div class="h lg grad-text" style="margin-bottom:0">You need both to survive.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- E9: CTA — with card for body and podcast info -->
+    <div class="slide-wrap"><div class="sb de cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Takeaway</div>
+        <div class="h lg" style="margin-bottom:48px">Honor the Craft by<br><span class="grad-text">Growing the Business</span></div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:44px 48px;margin-bottom:48px">
+          <p class="p" style="font-size:44px;color:rgba(255,255,255,0.85)">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(225,29,72,0.1),rgba(251,113,133,0.08));border:1px solid rgba(225,29,72,0.2);border-radius:12px;padding:28px 40px">
+          <p class="p" style="font-size:36px;color:rgba(255,255,255,0.9)">🎙 <b>Digital by Design Podcast</b> · <span style="color:#e11d48">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN F — EDITORIAL CLEAN (Light, Minimal, Whitespace)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design F — Editorial Clean</div>
+  <div class="design-row">
+
+    <!-- F1: HOOK -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label" style="text-align:center">A Father's Words</div>
+        <div class="h xl" style="text-align:center;margin-bottom:56px">'You're Not a Proud<br><span class="accent-text">Dental Technician</span>'</div>
+        <div class="card">
+          <p class="p" style="text-align:center;font-size:46px;color:rgba(0,0,0,0.7)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F2: OLD GUARD -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:48px">He saw digital as <span class="accent-text">abandoning tradition.</span></div>
+        <p class="p" style="font-size:48px;margin-bottom:40px">Speed and efficiency meant sacrificing the art.</p>
+        <div class="card-left">
+          <p class="p" style="font-size:50px;color:rgba(0,0,0,0.7);font-style:italic">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F3: THE TENSION -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Tension</div>
+        <p class="p" style="font-size:48px;margin-bottom:48px;color:rgba(0,0,0,0.65)">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="card-accent">
+          <div class="h lg accent-text" style="margin-bottom:0;text-align:center">The math didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F4: QUOTE SLIDE -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="big-quote" style="font-size:72px;padding-left:70px">'That's Not How This Industry Works'</div>
+        <div style="width:100px;height:4px;background:#2563eb;border-radius:2px;margin:48px 0 48px 70px"></div>
+        <div class="card-left">
+          <p class="p" style="font-size:44px;color:rgba(0,0,0,0.65)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+          <p class="p" style="margin-top:28px;font-size:44px;color:rgba(0,0,0,0.5)">We were speaking different languages.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F5: BREAKING POINT -->
+    <div class="slide-wrap"><div class="sb df acc-bg cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Breaking Point</div>
+        <p class="p" style="font-size:44px;margin-bottom:36px">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:48px">'You're not a proud<br>dental technician.'</div>
+        <div class="card" style="margin-top:16px">
+          <p class="p" style="font-size:46px">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Evolution</div>
+        <div class="h lg" style="margin-bottom:40px">Years passed. The lab grew.</div>
+        <div class="card-left" style="margin-bottom:48px">
+          <p class="p" style="font-size:46px;color:rgba(0,0,0,0.7)">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="font-size:50px;color:rgba(0,0,0,0.75)">And one day, he came to me with <b class="accent-text">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F7: THE SHIFT (CLIMAX) -->
+    <div class="slide-wrap"><div class="sb df acc-bg cen">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Shift</div>
+        <p class="p" style="font-size:44px;margin-bottom:32px">He said:</p>
+        <div class="h xl" style="margin-bottom:48px">'You're a Proud<br>Businessman.'</div>
+        <div class="card">
+          <p class="p" style="font-size:46px">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F8: LESSON -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Real Lesson</div>
+        <div class="card-left" style="margin-bottom:28px">
+          <p class="p" style="font-size:46px;color:rgba(0,0,0,0.75)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="card-left" style="border-left-color:#64748b;margin-bottom:48px">
+          <p class="p" style="font-size:46px;color:rgba(0,0,0,0.75)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div style="text-align:center">
+          <div class="h lg accent-text" style="margin-bottom:0">You need both to survive.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- F9: CTA -->
+    <div class="slide-wrap"><div class="sb df cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Takeaway</div>
+        <div class="h lg" style="margin-bottom:48px">Honor the Craft by<br><span class="accent-text">Growing the Business</span></div>
+        <div class="card" style="margin-bottom:48px">
+          <p class="p" style="font-size:44px;color:rgba(0,0,0,0.7)">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="card-accent" style="padding:28px 40px">
+          <p class="p" style="font-size:36px;color:rgba(0,0,0,0.8)">🎙 <b>Digital by Design Podcast</b> · <span class="accent-text">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN G — DARK LUXE (Charcoal, Gold Accents, Elegant Serif)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design G — Dark Luxe</div>
+  <div class="design-row">
+
+    <!-- G1: HOOK -->
+    <div class="slide-wrap"><div class="sb dg">
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label" style="text-align:center">A Father's Words</div>
+        <div class="h xl" style="text-align:center;margin-bottom:48px">'You're Not a Proud<br><span class="gold-text">Dental Technician</span>'</div>
+        <div class="divider" style="margin:0 auto 48px"></div>
+        <div class="card">
+          <p class="p" style="text-align:center;font-size:44px;color:rgba(245,240,232,0.8)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G2: OLD GUARD -->
+    <div class="slide-wrap"><div class="sb dg">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:44px">He saw digital as <span class="gold-text">abandoning tradition.</span></div>
+        <p class="p" style="font-size:46px;margin-bottom:40px">Speed and efficiency meant sacrificing the art.</p>
+        <div class="card-left">
+          <p class="p" style="font-size:48px;color:rgba(245,240,232,0.8);font-style:italic">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G3: THE TENSION -->
+    <div class="slide-wrap"><div class="sb dg">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Tension</div>
+        <p class="p" style="font-size:46px;margin-bottom:48px">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="card" style="text-align:center">
+          <div class="h lg gold-text" style="margin-bottom:0;font-style:italic">The math didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G4: QUOTE SLIDE -->
+    <div class="slide-wrap"><div class="sb dg">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="big-quote">'That's Not How This Industry Works'</div>
+        <div class="divider" style="margin:48px 0 48px 60px"></div>
+        <div class="card-left">
+          <p class="p" style="font-size:44px;color:rgba(245,240,232,0.75)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+          <p class="p" style="margin-top:28px;font-size:44px">We were speaking different languages.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G5: BREAKING POINT -->
+    <div class="slide-wrap"><div class="sb dg acc-bg cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Breaking Point</div>
+        <p class="p" style="font-size:42px;margin-bottom:32px;color:rgba(245,240,232,0.6)">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:40px;font-style:italic">'You're not a proud<br><span class="gold-text">dental technician.</span>'</div>
+        <div class="divider" style="margin:0 auto 40px"></div>
+        <div class="card">
+          <p class="p" style="font-size:44px;color:rgba(245,240,232,0.85)">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb dg">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Evolution</div>
+        <div class="h lg" style="margin-bottom:36px">Years passed. The lab grew.</div>
+        <div class="card-left" style="margin-bottom:44px">
+          <p class="p" style="font-size:44px;color:rgba(245,240,232,0.8)">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="font-size:48px;color:rgba(245,240,232,0.8)">And one day, he came to me with <b class="gold-text">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G7: THE SHIFT (CLIMAX) -->
+    <div class="slide-wrap"><div class="sb dg acc-bg cen">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Shift</div>
+        <p class="p" style="font-size:42px;margin-bottom:28px;color:rgba(245,240,232,0.6)">He said:</p>
+        <div class="h xl" style="margin-bottom:40px;font-style:italic">'You're a Proud<br><span class="gold-text">Businessman.</span>'</div>
+        <div class="divider" style="margin:0 auto 40px"></div>
+        <div class="card">
+          <p class="p" style="font-size:44px;color:rgba(245,240,232,0.9)">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G8: LESSON -->
+    <div class="slide-wrap"><div class="sb dg">
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Real Lesson</div>
+        <div class="card-left" style="margin-bottom:28px">
+          <p class="p" style="font-size:44px;color:rgba(245,240,232,0.85)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="card-left" style="border-left-color:rgba(212,175,125,0.4);margin-bottom:44px">
+          <p class="p" style="font-size:44px;color:rgba(245,240,232,0.85)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div style="text-align:center">
+          <div class="divider" style="margin:0 auto 32px"></div>
+          <div class="h lg gold-text" style="margin-bottom:0;font-style:italic">You need both to survive.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- G9: CTA -->
+    <div class="slide-wrap"><div class="sb dg cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Takeaway</div>
+        <div class="h lg" style="margin-bottom:44px;font-style:italic">Honor the Craft by<br><span class="gold-text">Growing the Business</span></div>
+        <div class="card" style="margin-bottom:44px">
+          <p class="p" style="font-size:42px;color:rgba(245,240,232,0.85)">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="card" style="background:rgba(212,175,125,0.1);border-color:rgba(212,175,125,0.25);padding:28px 40px">
+          <p class="p" style="font-size:34px;color:rgba(245,240,232,0.9)">🎙 <b>Digital by Design Podcast</b> · <span class="gold-text">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN H — URBAN REFINED (Concrete Grays, Architectural, Bold)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design H — Urban Refined</div>
+  <div class="design-row">
+
+    <!-- H1: HOOK -->
+    <div class="slide-wrap"><div class="sb dh">
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label" style="text-align:center">A Father's Words</div>
+        <div class="h xl" style="text-align:center;margin-bottom:48px">'You're Not a Proud<br><span class="rust-text">Dental Technician</span>'</div>
+        <div class="geo-line" style="margin:0 auto 48px"></div>
+        <div class="card">
+          <p class="p" style="text-align:center;font-size:44px;color:rgba(0,0,0,0.7)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H2: OLD GUARD -->
+    <div class="slide-wrap"><div class="sb dh dk">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:44px">He saw digital as <span class="rust-text">abandoning tradition.</span></div>
+        <p class="p" style="font-size:46px;margin-bottom:40px">Speed and efficiency meant sacrificing the art.</p>
+        <div class="card-left">
+          <p class="p" style="font-size:48px;color:rgba(232,228,224,0.85);font-style:italic">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H3: THE TENSION -->
+    <div class="slide-wrap"><div class="sb dh">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Tension</div>
+        <p class="p" style="font-size:46px;margin-bottom:48px">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="card-accent" style="text-align:center">
+          <div class="h lg" style="margin-bottom:0;color:#fff">The math didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H4: QUOTE SLIDE -->
+    <div class="slide-wrap"><div class="sb dh dk">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="big-quote" style="color:#e8e4e0">'That's Not How This Industry Works'</div>
+        <div class="geo-line" style="margin:48px 0 48px 70px"></div>
+        <div class="card-left">
+          <p class="p" style="font-size:44px;color:rgba(232,228,224,0.75)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+          <p class="p" style="margin-top:28px;font-size:44px">We were speaking different languages.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H5: BREAKING POINT -->
+    <div class="slide-wrap"><div class="sb dh dk cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Breaking Point</div>
+        <p class="p" style="font-size:42px;margin-bottom:32px">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:44px">'You're not a proud<br><span class="rust-text">dental technician.</span>'</div>
+        <div class="card" style="margin-top:16px">
+          <p class="p" style="font-size:44px;color:rgba(232,228,224,0.85)">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb dh">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Evolution</div>
+        <div class="h lg" style="margin-bottom:36px">Years passed. The lab grew.</div>
+        <div class="card-left" style="margin-bottom:44px">
+          <p class="p" style="font-size:44px;color:rgba(0,0,0,0.7)">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="font-size:48px;color:rgba(0,0,0,0.75)">And one day, he came to me with <b class="rust-text">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H7: THE SHIFT (CLIMAX) -->
+    <div class="slide-wrap"><div class="sb dh dk cen">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Shift</div>
+        <p class="p" style="font-size:42px;margin-bottom:28px">He said:</p>
+        <div class="h xl" style="margin-bottom:44px">'You're a Proud<br><span class="rust-text">Businessman.</span>'</div>
+        <div class="geo-line" style="margin:0 auto 40px"></div>
+        <div class="card">
+          <p class="p" style="font-size:44px;color:rgba(232,228,224,0.9)">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H8: LESSON -->
+    <div class="slide-wrap"><div class="sb dh">
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Real Lesson</div>
+        <div class="card-left" style="margin-bottom:28px">
+          <p class="p" style="font-size:44px;color:rgba(0,0,0,0.75)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="card-left" style="border-left-color:#8b8178;margin-bottom:44px">
+          <p class="p" style="font-size:44px;color:rgba(0,0,0,0.75)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div class="card-accent" style="text-align:center">
+          <div class="h lg" style="margin-bottom:0;color:#fff">You need both to survive.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- H9: CTA -->
+    <div class="slide-wrap"><div class="sb dh cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Takeaway</div>
+        <div class="h lg" style="margin-bottom:44px">Honor the Craft by<br><span class="rust-text">Growing the Business</span></div>
+        <div class="card" style="margin-bottom:44px">
+          <p class="p" style="font-size:42px;color:rgba(0,0,0,0.7)">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="card-accent" style="padding:28px 40px">
+          <p class="p" style="font-size:34px;color:rgba(255,255,255,0.9)">🎙 <b>Digital by Design Podcast</b> · <span style="color:#e8a07a">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN I — WARM ORGANIC (Cream, Terracotta, Friendly)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design I — Warm Organic</div>
+  <div class="design-row">
+
+    <!-- I1: HOOK -->
+    <div class="slide-wrap"><div class="sb di">
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label" style="text-align:center">A Father's Words</div>
+        <div class="h xl" style="text-align:center;margin-bottom:48px">'You're Not a Proud<br><span class="terra-text">Dental Technician</span>'</div>
+        <div class="soft-line" style="margin:0 auto 48px"></div>
+        <div class="card">
+          <p class="p" style="text-align:center;font-size:44px;color:rgba(45,42,38,0.75)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I2: OLD GUARD -->
+    <div class="slide-wrap"><div class="sb di">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:44px">He saw digital as <span class="terra-text">abandoning tradition.</span></div>
+        <p class="p" style="font-size:46px;margin-bottom:40px">Speed and efficiency meant sacrificing the art.</p>
+        <div class="card-left">
+          <p class="p" style="font-size:48px;color:rgba(45,42,38,0.8);font-style:italic">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I3: THE TENSION -->
+    <div class="slide-wrap"><div class="sb di">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Tension</div>
+        <p class="p" style="font-size:46px;margin-bottom:48px">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="card-accent" style="text-align:center">
+          <div class="h lg terra-text" style="margin-bottom:0">The math didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I4: QUOTE SLIDE -->
+    <div class="slide-wrap"><div class="sb di">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="big-quote">'That's Not How This Industry Works'</div>
+        <div class="soft-line" style="margin:48px 0 48px 60px"></div>
+        <div class="card-left">
+          <p class="p" style="font-size:44px;color:rgba(45,42,38,0.7)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+          <p class="p" style="margin-top:28px;font-size:44px">We were speaking different languages.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I5: BREAKING POINT -->
+    <div class="slide-wrap"><div class="sb di acc-bg cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Breaking Point</div>
+        <p class="p" style="font-size:42px;margin-bottom:32px">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:44px">'You're not a proud<br>dental technician.'</div>
+        <div class="card" style="margin-top:16px">
+          <p class="p" style="font-size:44px">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb di">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Evolution</div>
+        <div class="h lg" style="margin-bottom:36px">Years passed. The lab grew.</div>
+        <div class="card-left" style="margin-bottom:44px">
+          <p class="p" style="font-size:44px;color:rgba(45,42,38,0.8)">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="font-size:48px;color:rgba(45,42,38,0.8)">And one day, he came to me with <b class="terra-text">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I7: THE SHIFT (CLIMAX) -->
+    <div class="slide-wrap"><div class="sb di acc-bg cen">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Shift</div>
+        <p class="p" style="font-size:42px;margin-bottom:28px">He said:</p>
+        <div class="h xl" style="margin-bottom:44px">'You're a Proud<br>Businessman.'</div>
+        <div class="soft-line" style="margin:0 auto 40px;background:rgba(255,255,255,0.4)"></div>
+        <div class="card">
+          <p class="p" style="font-size:44px">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I8: LESSON -->
+    <div class="slide-wrap"><div class="sb di">
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Real Lesson</div>
+        <div class="card-left" style="margin-bottom:28px">
+          <p class="p" style="font-size:44px;color:rgba(45,42,38,0.8)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="card-left" style="border-left-color:#d4967d;margin-bottom:44px">
+          <p class="p" style="font-size:44px;color:rgba(45,42,38,0.8)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div style="text-align:center">
+          <div class="soft-line" style="margin:0 auto 32px"></div>
+          <div class="h lg terra-text" style="margin-bottom:0">You need both to survive.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- I9: CTA -->
+    <div class="slide-wrap"><div class="sb di cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Takeaway</div>
+        <div class="h lg" style="margin-bottom:44px">Honor the Craft by<br><span class="terra-text">Growing the Business</span></div>
+        <div class="card" style="margin-bottom:44px">
+          <p class="p" style="font-size:42px;color:rgba(45,42,38,0.8)">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="card-accent" style="padding:28px 40px">
+          <p class="p" style="font-size:34px;color:rgba(45,42,38,0.9)">🎙 <b>Digital by Design Podcast</b> · <span class="terra-text">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN J — DIGITAL/NEON TECH (Data Dashboard Layout)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design J — Digital / Neon Tech</div>
+  <div class="design-row">
+
+    <!-- J1: HOOK — metric style -->
+    <div class="slide-wrap"><div class="sb dj cen">
+      <div class="sc" style="justify-content:center">
+        <div class="status">A Father's Words</div>
+        <div class="h xl" style="margin-bottom:40px">'You're Not a Proud<br><span class="cyan">Dental Technician</span>'</div>
+        <div class="band">
+          <p class="p" style="text-align:center;font-size:40px;color:rgba(255,255,255,0.75)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J2: OLD GUARD — terminal block -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">SYS.02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:36px">He saw digital as <span class="cyan">abandoning tradition.</span></div>
+        <p class="p" style="margin-bottom:36px">Speed and efficiency meant sacrificing the art.</p>
+        <div class="terminal">
+          <p class="p" style="color:rgba(0,200,255,0.9)">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J3: TENSION — metric callout -->
+    <div class="slide-wrap"><div class="sb dj cen">
+      <div class="sn">SYS.03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status">The Tension</div>
+        <p class="p" style="margin-bottom:48px;font-size:40px">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="metric">
+          <div class="metric-value">ERR</div>
+          <div class="metric-label">The math didn't work</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J4: QUOTE — horizontal band layout -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">SYS.04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="h lg" style="margin-bottom:32px">'That's Not How This <span class="cyan">Industry Works</span>'</div>
+        <div class="band" style="margin-top:40px;margin-bottom:40px">
+          <p class="p" style="font-size:40px;color:rgba(255,255,255,0.8)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+        </div>
+        <p class="p" style="font-size:38px;color:rgba(255,255,255,0.5)">We were speaking different languages.</p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J5: BREAKING POINT — max impact -->
+    <div class="slide-wrap"><div class="sb dj cen">
+      <div class="sn">SYS.05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status" style="color:rgba(255,100,100,0.8)">// Warning: Breaking Point</div>
+        <p class="p" style="font-size:38px;margin-bottom:32px">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:40px">'You're not a proud<br><span class="cyan">dental technician.</span>'</div>
+        <div class="terminal" style="border-color:rgba(255,100,100,0.3)">
+          <p class="p" style="color:rgba(255,255,255,0.8)">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">SYS.06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status">The Evolution</div>
+        <div class="h lg" style="margin-bottom:32px">Years passed. The lab grew.</div>
+        <div class="band">
+          <p class="p" style="font-size:44px;color:rgba(0,200,255,0.9)">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="margin-top:36px;font-size:44px">And one day, he came to me with <b class="cyan">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J7: THE SHIFT (CLIMAX) -->
+    <div class="slide-wrap"><div class="sb dj cen">
+      <div class="sn">SYS.07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status" style="color:rgba(0,255,150,0.8)">// Status: Success</div>
+        <p class="p" style="font-size:36px;margin-bottom:24px">He said:</p>
+        <div class="h xl" style="margin-bottom:40px;text-shadow:0 0 60px rgba(0,200,255,0.3)">'You're a Proud<br><span class="cyan">Businessman.</span>'</div>
+        <div class="band" style="background:rgba(0,200,255,0.1);border-color:rgba(0,200,255,0.3)">
+          <p class="p" style="font-size:40px;color:rgba(255,255,255,0.9)">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J8: LESSON -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">SYS.08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status">The Real Lesson</div>
+        <div class="terminal" style="margin-bottom:24px">
+          <p class="p" style="color:rgba(255,255,255,0.9)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="terminal" style="margin-bottom:40px;border-color:rgba(0,200,255,0.15)">
+          <p class="p" style="color:rgba(255,255,255,0.9)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div class="h lg cyan" style="text-align:center;text-shadow:0 0 40px rgba(0,200,255,0.5)">You need both to survive.</div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- J9: CTA -->
+    <div class="slide-wrap"><div class="sb dj cen">
+      <div class="sn no-swipe">SYS.09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status">// End Transmission</div>
+        <div class="h lg" style="margin-bottom:40px">Honor the Craft by<br><span class="cyan">Growing the Business</span></div>
+        <div class="band">
+          <p class="p" style="font-size:38px;color:rgba(255,255,255,0.85)">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="terminal" style="margin-top:40px;text-align:center">
+          <p class="p" style="font-size:32px;color:rgba(0,200,255,0.9)">🎙 Digital by Design Podcast · <span style="color:#00c8ff">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN L — STREET KINETIC (Poster/Zine Layout)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design L — Street Kinetic</div>
+  <div class="design-row">
+
+    <!-- L1: HOOK — tape accent, big bg number -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word">WORDS</div>
+      <div class="sn">01 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape" style="margin-bottom:36px">A Father's Words</div>
+        <div class="h xl" style="margin-bottom:40px">'You're Not<br>a Proud <span class="lime">Dental<br>Technician</span>'</div>
+        <div class="stack">
+          <div class="stack-card bottom"></div>
+          <div class="stack-card top">
+            <p class="p" style="font-size:38px;color:rgba(255,255,255,0.85)">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital.</p>
+          </div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L2: OLD GUARD — angled block -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape" style="margin-bottom:28px">Old Guard</div>
+        <div class="h lg">He saw digital as<br><span class="lime">abandoning<br>tradition.</span></div>
+        <div class="angled" style="margin-top:36px">
+          <div class="stack-card top" style="transform:rotate(-1deg)">
+            <p class="p" style="font-size:40px;color:rgba(255,255,255,0.85)">'Our work, our hands'—<br>that was the <span class="marker">mentality.</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L3: TENSION — color block -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word">MATH</div>
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape" style="margin-bottom:28px">The Tension</div>
+        <p class="p" style="font-size:40px;margin-bottom:32px">I'd watch us spend hours—sometimes <b>days</b>—on a single crown.</p>
+        <div class="color-block" style="transform:rotate(1deg)">
+          <div class="h lg" style="text-align:center">The math<br>didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L4: QUOTE — overlapping stack -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="h xl" style="margin-bottom:32px">'That's Not<br>How This<br><span class="lime">Industry</span><br>Works'</div>
+        <div class="stack">
+          <div class="stack-card bottom"></div>
+          <div class="stack-card top">
+            <p class="p" style="font-size:38px;color:rgba(255,255,255,0.85)">Every time I pushed for change, he pushed back.</p>
+            <p class="p" style="font-size:32px;margin-top:16px;color:rgba(255,255,255,0.5)">We were speaking different languages.</p>
+          </div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L5: BREAKING POINT — full color block -->
+    <div class="slide-wrap"><div class="sb dl" style="background:#b4ff32">
+      <div class="bg-word" style="color:rgba(0,0,0,0.04)">PROUD</div>
+      <div class="sn" style="color:rgba(0,0,0,0.2)">05 of 09</div>
+      <div class="sc" style="justify-content:center;text-align:center">
+        <div class="tape" style="background:#111;color:#b4ff32;margin-bottom:36px">Breaking Point</div>
+        <div class="h xl" style="color:#111;margin-bottom:36px">'You're not<br>a proud<br>dental<br>technician.'</div>
+        <p class="p" style="color:rgba(0,0,0,0.6);font-size:38px">I thought he was insulting me.<br>Maybe he was. I wasn't sure.</p>
+      </div>
+      <div class="brand" style="border-top-color:rgba(0,0,0,0.15);color:rgba(0,0,0,0.3)"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word">GROWTH</div>
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape" style="margin-bottom:28px">Evolution</div>
+        <div class="h lg" style="margin-bottom:32px">Years passed.<br>The lab <span class="lime">grew.</span></div>
+        <div class="angled">
+          <div class="stack-card top">
+            <p class="p" style="font-size:42px;color:#b4ff32">Digital workflows proved themselves.</p>
+          </div>
+        </div>
+        <p class="p" style="margin-top:32px;font-size:40px">And one day, he came to me with <span class="marker">different words.</span></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L7: THE SHIFT (CLIMAX) — full color -->
+    <div class="slide-wrap"><div class="sb dl" style="background:#b4ff32">
+      <div class="bg-word" style="color:rgba(0,0,0,0.05)">SHIFT</div>
+      <div class="sn" style="color:rgba(0,0,0,0.25)">07 of 09</div>
+      <div class="sc" style="justify-content:center;text-align:center">
+        <div class="tape" style="background:#111;color:#b4ff32;margin-bottom:32px">The Shift</div>
+        <div class="h xl" style="color:#111;font-size:110px;margin-bottom:32px">'You're a<br>Proud<br>Businessman.'</div>
+        <p class="p" style="color:rgba(0,0,0,0.7);font-size:36px">He finally saw that business acumen wasn't betraying the craft—<b style="color:#111">it was the thing that would save it.</b></p>
+      </div>
+      <div class="brand" style="border-top-color:rgba(0,0,0,0.15);color:rgba(0,0,0,0.3)"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L8: LESSON — stacked cards -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word">BOTH</div>
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape" style="margin-bottom:28px">The Lesson</div>
+        <div class="stack-card top" style="margin-bottom:20px;transform:rotate(-1deg)">
+          <p class="p" style="font-size:38px;color:rgba(255,255,255,0.9)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="stack-card top" style="margin-bottom:32px;transform:rotate(1deg);border-color:rgba(255,255,255,0.3)">
+          <p class="p" style="font-size:38px;color:rgba(255,255,255,0.9)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div class="h lg lime" style="text-align:center">You need both<br>to survive.</div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- L9: CTA -->
+    <div class="slide-wrap"><div class="sb dl cen">
+      <div class="bg-word">CRAFT</div>
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape" style="margin-bottom:32px">Takeaway</div>
+        <div class="h lg" style="margin-bottom:36px">Honor<br>the Craft.</div>
+        <div class="color-block" style="transform:rotate(-1deg)">
+          <p class="p" style="font-size:36px;text-align:center">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="tape" style="margin-top:32px;background:#111;color:#b4ff32">🎙 Link in comments</div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN M — WARM ORGANIC (Clean, Warm, Rounded)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design M — Warm Organic</div>
+  <div class="design-row">
+
+    <!-- M1: HOOK -->
+    <div class="slide-wrap"><div class="sb dm cen">
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">A Father's Words</div>
+        <div class="h xl" style="margin-bottom:48px">'You're Not a Proud<br><span class="rust">Dental Technician</span>'</div>
+        <div class="card">
+          <p class="p" style="font-size:44px;color:rgba(42,37,32,0.8);text-align:center">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M2: OLD GUARD -->
+    <div class="slide-wrap"><div class="sb dm">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Old Guard Perspective</div>
+        <div class="h lg" style="margin-bottom:40px">He saw digital as<br><span class="rust">abandoning tradition.</span></div>
+        <p class="p" style="margin-bottom:40px">Speed and efficiency meant sacrificing the art.</p>
+        <div class="card-left">
+          <p class="p" style="font-size:46px;color:rgba(42,37,32,0.8);font-style:italic">'Our work, our hands'—that was the mentality.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M3: TENSION -->
+    <div class="slide-wrap"><div class="sb dm">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Tension</div>
+        <p class="p" style="font-size:44px;margin-bottom:48px">I'd watch us spend hours—sometimes <b>days</b>—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="card-accent" style="text-align:center">
+          <div class="h lg rust" style="margin-bottom:0">The math didn't work.</div>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M4: QUOTE -->
+    <div class="slide-wrap"><div class="sb dm">
+      <div class="sn">04 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="h xl" style="margin-bottom:40px">'That's Not How<br>This <span class="rust">Industry</span><br>Works'</div>
+        <div class="soft-line"></div>
+        <div class="card">
+          <p class="p" style="font-size:42px;color:rgba(42,37,32,0.75)">Every time I pushed for change, he pushed back. The generational gap felt <b>impossible to bridge.</b></p>
+          <p class="p" style="margin-top:24px;font-size:38px;color:rgba(42,37,32,0.5)">We were speaking different languages.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M5: BREAKING POINT — dark variation -->
+    <div class="slide-wrap"><div class="sb dm dk cen">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Breaking Point</div>
+        <p class="p" style="font-size:40px;margin-bottom:32px">When I went digital-first, he said it flat out:</p>
+        <div class="h xl" style="margin-bottom:44px">'You're not a proud<br><span class="rust">dental technician.</span>'</div>
+        <div class="card">
+          <p class="p" style="font-size:44px;color:rgba(245,240,230,0.85);text-align:center">I thought he was insulting me. Maybe he was. I wasn't sure.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M6: EVOLUTION -->
+    <div class="slide-wrap"><div class="sb dm">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Evolution</div>
+        <div class="h lg" style="margin-bottom:36px">Years passed.<br>The lab grew.</div>
+        <div class="card-left" style="margin-bottom:40px">
+          <p class="p" style="font-size:46px;color:#c4713d">Digital workflows proved themselves.</p>
+        </div>
+        <p class="p" style="font-size:46px">And one day, he came to me with <b class="rust">different words.</b></p>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M7: THE SHIFT (CLIMAX) — dark -->
+    <div class="slide-wrap"><div class="sb dm dk cen">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Shift</div>
+        <p class="p" style="font-size:38px;margin-bottom:24px">He said:</p>
+        <div class="h xl" style="margin-bottom:44px">'You're a Proud<br><span class="rust">Businessman.</span>'</div>
+        <div class="card" style="border:1px solid rgba(196,113,61,0.3)">
+          <p class="p" style="font-size:42px;color:rgba(245,240,230,0.9);text-align:center">He finally saw that business acumen wasn't betraying the craft—<b>it was the thing that would save it.</b></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M8: LESSON -->
+    <div class="slide-wrap"><div class="sb dm">
+      <div class="sn">08 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Real Lesson</div>
+        <div class="card-left" style="margin-bottom:28px">
+          <p class="p" style="font-size:44px;color:rgba(42,37,32,0.85)">Craftsmanship without business sense <b>doesn't scale.</b></p>
+        </div>
+        <div class="card-left" style="margin-bottom:44px;border-left-color:#d4967d">
+          <p class="p" style="font-size:44px;color:rgba(42,37,32,0.85)">Excellence without efficiency becomes <b>a museum piece.</b></p>
+        </div>
+        <div class="h lg rust" style="text-align:center">You need both to survive.</div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+    <!-- M9: CTA -->
+    <div class="slide-wrap"><div class="sb dm cen">
+      <div class="sn no-swipe">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Takeaway</div>
+        <div class="h lg" style="margin-bottom:44px">Honor the Craft by<br><span class="rust">Growing the Business</span></div>
+        <div class="card" style="margin-bottom:44px">
+          <p class="p" style="font-size:42px;color:rgba(42,37,32,0.8);text-align:center">The best way to respect what came before isn't to freeze it in time. <b>It's to make sure it's still here for the next generation.</b></p>
+        </div>
+        <div class="card-accent" style="padding:28px 40px">
+          <p class="p" style="font-size:34px;color:rgba(42,37,32,0.9)">🎙 <b>Digital by Design Podcast</b> · <span class="rust">Link in comments</span></p>
+        </div>
+      </div>
+      <div class="brand"><span>Digital by Design Podcast</span><span>—</span><span>AA Dental Design</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN N — Supercharged Notes App
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design N — Supercharged Notes App</div>
+  <div class="design-row">
+
+    <!-- N1: HOOK — Neutral battery -->
+    <div class="slide-wrap"><div class="sb dn dark">
+      <div class="status-bar">
+        <span class="time">1:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          A Father's Words
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-title">'You're Not a Proud <span class="highlight">Dental Technician</span>'</div>
+        <p class="note-body">Those words hit me like a punch. My dad—the man who taught me everything—said this when I started pushing for digital workflows.</p>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N2: CONTEXT — Neutral battery -->
+    <div class="slide-wrap"><div class="sb dn">
+      <div class="status-bar">
+        <span class="time">2:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          The Old Guard
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-title">The Old Guard Perspective</div>
+        <p class="note-body">He saw digital as <b>abandoning tradition.</b></p>
+        <p class="note-body" style="margin-top:32px;">Speed and efficiency meant sacrificing the art.</p>
+        <div class="note-emphasis">'Our work, our hands'—that was the mentality.</div>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N3: TENSION — RED battery (conflict!) -->
+    <div class="slide-wrap"><div class="sb dn">
+      <div class="status-bar">
+        <span class="time">3:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill red" style="width:50%"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          The Tension
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-title">The Tension</div>
+        <p class="note-body">I'd watch us spend hours—sometimes days—on a single crown, charging the same as labs that produced in a fraction of the time.</p>
+        <div class="note-emphasis">The math didn't work.</div>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N4: DIALOGUE — RED battery -->
+    <div class="slide-wrap"><div class="sb dn dark">
+      <div class="status-bar">
+        <span class="time">4:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill red" style="width:35%"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          The Pushback
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content" style="justify-content:center;">
+        <div class="note-title" style="font-size:56px;">'That's Not How This <span class="highlight">Industry Works</span>'</div>
+        <p class="note-body" style="margin-top:40px;">Every time I pushed for change, he pushed back. The generational gap felt impossible to bridge.</p>
+        <div class="note-emphasis">We were speaking different languages.</div>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N5: BREAKING POINT — RED battery (lowest) -->
+    <div class="slide-wrap"><div class="sb dn dark">
+      <div class="status-bar">
+        <span class="time">5:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill red" style="width:20%"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Breaking Point
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-title">The Breaking Point</div>
+        <p class="note-body">When I went digital-first, he said it flat out: <b>'You're not a proud dental technician.'</b></p>
+        <p class="note-body" style="margin-top:32px;">I thought he was insulting me. Maybe he was.</p>
+        <div class="note-emphasis">I wasn't sure.</div>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N6: EVOLUTION — GREEN battery (turning point) -->
+    <div class="slide-wrap"><div class="sb dn">
+      <div class="status-bar">
+        <span class="time">6:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill green"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          The Evolution
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-title">The Evolution</div>
+        <p class="note-body">Years passed. The lab grew. Digital workflows proved themselves.</p>
+        <p class="note-body" style="margin-top:32px;">And one day, he came to me with <b>different words.</b></p>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N7: THE SHIFT — GREEN battery -->
+    <div class="slide-wrap"><div class="sb dn split">
+      <div class="note-side">
+        <div class="status-bar">
+          <span class="time">7:09</span>
+          <div class="icons">
+            <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+            <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+            <div class="battery"><div class="battery-fill green"></div></div>
+          </div>
+        </div>
+        <div class="notes-header">
+          <div class="notes-back">
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            The Shift
+          </div>
+        </div>
+        <div class="note-content">
+          <div class="note-title" style="font-size:48px;">'You're a Proud <span class="highlight">Businessman</span>'</div>
+          <p class="note-body" style="font-size:32px;">He finally saw that business acumen wasn't betraying the craft—it was the thing that would save it.</p>
+        </div>
+        <div class="note-footer">
+          <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+        </div>
+      </div>
+      <div class="visual-side">
+        <div class="big-stat">
+          <div class="number" style="font-size:100px;">Both</div>
+          <div class="label">art + business</div>
+        </div>
+      </div>
+    </div></div>
+
+    <!-- N8: LESSON — GREEN battery -->
+    <div class="slide-wrap"><div class="sb dn">
+      <div class="status-bar">
+        <span class="time">8:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill green"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          The Real Lesson
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content">
+        <div class="note-title">The Real Lesson</div>
+        <p class="note-body">Craftsmanship without business sense doesn't scale.</p>
+        <p class="note-body" style="margin-top:32px;">Excellence without efficiency becomes a museum piece.</p>
+        <div class="note-emphasis">You need both to survive.</div>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+    <!-- N9: CTA — GREEN battery -->
+    <div class="slide-wrap"><div class="sb dn">
+      <div class="status-bar">
+        <span class="time">9:09</span>
+        <div class="icons">
+          <svg viewBox="0 0 18 12" style="width:32px;height:20px"><rect x="0" y="8" width="3" height="4" rx="0.5" fill="currentColor" opacity="0.35"/><rect x="5" y="5" width="3" height="7" rx="0.5" fill="currentColor"/><rect x="10" y="2" width="3" height="10" rx="0.5" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="0.5" fill="currentColor"/></svg>
+          <svg viewBox="0 0 16 14" style="width:28px;height:24px"><path d="M8 11a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" fill="currentColor"/><path d="M4 8c2.5-2.5 6-2.5 8 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M1 5c4-4 10-4 14 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <div class="battery"><div class="battery-fill green"></div></div>
+        </div>
+      </div>
+      <div class="notes-header">
+        <div class="notes-back">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Honor the Craft
+        </div>
+        <div class="notes-actions">
+          <div class="swipe-indicator">
+            <svg class="share-icon" viewBox="0 0 24 24"><path d="M4 14v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/></svg>
+            <span>Swipe</span>
+          </div>
+        </div>
+      </div>
+      <div class="note-content" style="justify-content:center;">
+        <div class="note-title">Honor the Craft by <span class="highlight">Growing the Business</span></div>
+        <p class="note-body">The best way to respect what came before isn't to freeze it in time.</p>
+        <p class="note-body" style="margin-top:24px;">It's to make sure it's still here for the <b>next generation.</b></p>
+      </div>
+      <div class="note-footer">
+        <div class="brand">Digital by Design Podcast — AA Dental Design</div>
+      </div>
+    </div></div>
+
+  </div>
+</div>
+
+</body>
+</html>
