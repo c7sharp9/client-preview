@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Implant Math Playbook — 3D Dentists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0a0a0a;
+      padding: 40px;
+      min-height: 100vh;
+    }
+
+    /* Layout */
+    .design-section {
+      margin-bottom: 80px;
+    }
+    .design-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+      padding-left: 8px;
+    }
+    .design-row {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+
+    /* Slide wrapper - 4:5 ratio scaled down */
+    .slide-wrap {
+      flex-shrink: 0;
+      width: 405px;
+      height: 506.25px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .sb {
+      width: 1080px;
+      height: 1350px;
+      transform: scale(0.375);
+      transform-origin: top left;
+    }
+
+    /* ============================================================
+       DESIGN H — BOLD MINIMAL (Professional Blue)
+       Primary: #2563eb, Accent: #3b82f6
+       ============================================================ */
+    .dh {
+      background: #0a0a0f;
+      padding: 80px;
+      position: relative;
+    }
+    .dh .sc {
+      height: calc(100% - 90px);
+      display: flex;
+      flex-direction: column;
+    }
+    .dh .sn {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.2);
+    }
+    .dh .brand {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 80px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .dh .sec-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 32px;
+    }
+    .dh .h {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+    .dh .h.lg { font-size: 82px; margin-bottom: 40px; }
+    .dh .h.xl { font-size: 100px; margin-bottom: 48px; }
+    .dh .p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+    .dh .p b { font-weight: 600; color: rgba(255,255,255,0.9); }
+    .dh .emphasis {
+      font-family: 'Outfit', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 48px;
+      padding: 40px 0;
+      border-top: 3px solid #2563eb;
+    }
+    .dh .grad-text {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dh .card {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 20px;
+      padding: 48px;
+      margin-top: 40px;
+    }
+    .dh .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      border-radius: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: white;
+      margin-right: 28px;
+      flex-shrink: 0;
+    }
+    .dh .step-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dh .step-row:last-child { border-bottom: none; }
+
+    /* H Accent Background */
+    .dh.acc-bg {
+      background: linear-gradient(160deg, rgba(37, 99, 235, 0.15) 0%, rgba(59, 130, 246, 0.08) 100%);
+    }
+    .dh.acc-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 70%, rgba(37, 99, 235, 0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       DESIGN F — EDITORIAL CLEAN (Navy/Orange)
+       Primary: #1C3A5C, Accent: #E8762B
+       3D Dentists Brand Colors
+       ============================================================ */
+    .df {
+      background: #FAFAFA;
+      padding: 80px;
+      position: relative;
+    }
+    .df .sc {
+      height: calc(100% - 90px);
+      display: flex;
+      flex-direction: column;
+    }
+    .df .sn {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(0,0,0,0.2);
+    }
+    .df .brand {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 80px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.25);
+    }
+    .df .sec-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #E8762B;
+      margin-bottom: 32px;
+    }
+    .df .h {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #1C3A5C;
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+    .df .h.lg { font-size: 82px; margin-bottom: 40px; }
+    .df .h.xl { font-size: 100px; margin-bottom: 48px; }
+    .df .p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(0,0,0,0.55);
+    }
+    .df .p b { font-weight: 600; color: rgba(0,0,0,0.85); }
+    .df .emphasis {
+      font-family: 'Outfit', sans-serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: #1C3A5C;
+      margin-top: 48px;
+      padding: 40px 0;
+      border-top: 3px solid #E8762B;
+    }
+    .df .accent-text {
+      color: #E8762B;
+    }
+    .df .card {
+      background: rgba(28, 58, 92, 0.06);
+      border: 1px solid rgba(28, 58, 92, 0.15);
+      border-radius: 20px;
+      padding: 48px;
+      margin-top: 40px;
+    }
+    .df .card-left {
+      background: rgba(28, 58, 92, 0.04);
+      border-left: 4px solid #E8762B;
+      padding: 40px 48px;
+      border-radius: 0 16px 16px 0;
+      margin-top: 40px;
+    }
+    .df .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, #E8762B, #F59542);
+      border-radius: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: white;
+      margin-right: 28px;
+      flex-shrink: 0;
+    }
+    .df .step-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .df .step-row:last-child { border-bottom: none; }
+
+    /* F Accent Background */
+    .df.acc-bg {
+      background: linear-gradient(160deg, #0f1c2e 0%, #1a3352 100%);
+    }
+    .df.acc-bg .sec-label { color: rgba(255,255,255,0.6); }
+    .df.acc-bg .h { color: #FFFFFF; }
+    .df.acc-bg .p { color: rgba(255,255,255,0.7); }
+    .df.acc-bg .p b { color: rgba(255,255,255,0.95); }
+    .df.acc-bg .emphasis { color: #FFFFFF; border-top-color: rgba(255,255,255,0.3); }
+    .df.acc-bg .brand { border-top-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+    .df.acc-bg .sn { color: rgba(255,255,255,0.3); }
+
+    /* ============================================================
+       DESIGN B — BOLD BRUTALIST (Navy/Orange)
+       Primary: #E8762B, Accent: #F59542
+       3D Dentists Brand Colors
+       ============================================================ */
+    .db {
+      background: #0f1c2e;
+      padding: 80px;
+      position: relative;
+    }
+    .db .sc {
+      height: calc(100% - 90px);
+      display: flex;
+      flex-direction: column;
+    }
+    .db .sn {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.2);
+    }
+    .db .brand {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 80px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .db .sec-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #F59542;
+      margin-bottom: 32px;
+    }
+    .db .bar {
+      width: 120px;
+      height: 12px;
+      background: #E8762B;
+      border-radius: 6px;
+      margin-bottom: 40px;
+    }
+    .db .h {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.0;
+      letter-spacing: -3px;
+    }
+    .db .h.lg { font-size: 86px; margin-bottom: 40px; }
+    .db .h.xl { font-size: 105px; margin-bottom: 48px; }
+    .db .p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.55);
+    }
+    .db .p b { font-weight: 600; color: rgba(255,255,255,0.9); }
+    .db .emphasis {
+      font-family: 'Outfit', sans-serif;
+      font-size: 60px;
+      font-weight: 800;
+      color: #F59542;
+      margin-top: 48px;
+      padding-left: 32px;
+      border-left: 8px solid #E8762B;
+    }
+    .db .grad-text {
+      background: linear-gradient(135deg, #E8762B 0%, #F59542 50%, #FBAB5C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .db .card {
+      background: rgba(232, 118, 43, 0.08);
+      border: 2px solid rgba(232, 118, 43, 0.25);
+      border-radius: 16px;
+      padding: 48px;
+      margin-top: 40px;
+    }
+    .db .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: #E8762B;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 900;
+      color: white;
+      margin-right: 32px;
+      flex-shrink: 0;
+    }
+    .db .step-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 36px 0;
+      border-bottom: 2px solid rgba(255,255,255,0.06);
+    }
+    .db .step-row:last-child { border-bottom: none; }
+
+    /* B Accent Background */
+    .db.acc-bg {
+      background: linear-gradient(160deg, #E8762B 0%, #D05A1B 100%);
+    }
+    .db.acc-bg .sec-label { color: rgba(255,255,255,0.6); }
+    .db.acc-bg .h { color: #FFFFFF; }
+    .db.acc-bg .p { color: rgba(255,255,255,0.75); }
+    .db.acc-bg .p b { color: #FFFFFF; }
+    .db.acc-bg .emphasis { color: #FFFFFF; border-left-color: rgba(255,255,255,0.4); }
+    .db.acc-bg .bar { background: rgba(255,255,255,0.4); }
+    .db.acc-bg .brand { border-top-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+    .db.acc-bg .sn { color: rgba(255,255,255,0.3); }
+
+    /* Centered layout utility */
+    .cen { text-align: center; }
+    .cen .sc { align-items: center; justify-content: center; }
+
+    /* ============================================================
+       DESIGN J — TECH DASHBOARD (Navy/Orange)
+       Primary: #E8762B, Accent: #F59542
+       3D Dentists Brand Colors
+       ============================================================ */
+    .dj {
+      background: #0f1c2e;
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dj::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #E8762B, #F59542, #E8762B);
+    }
+    .dj .sc {
+      height: calc(100% - 90px);
+      display: flex;
+      flex-direction: column;
+    }
+    .dj .sn {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 22px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.25);
+    }
+    .dj .brand {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 80px;
+      border-top: 1px solid rgba(232, 118, 43, 0.2);
+      font-family: 'Space Grotesk', monospace;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .dj .status {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .dj .status.warn { color: #f87171; }
+    .dj .status.success { color: #4ade80; }
+    .dj .status.process { color: #F59542; }
+    .dj .status.info { color: #E8762B; }
+    .dj .h {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+    .dj .h.lg { font-size: 80px; margin-bottom: 40px; }
+    .dj .h.xl { font-size: 96px; margin-bottom: 48px; }
+    .dj .p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.55);
+    }
+    .dj .p b { font-weight: 600; color: rgba(255,255,255,0.9); }
+    .dj .emphasis {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 48px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-top: 48px;
+      padding: 32px 40px;
+      background: rgba(232, 118, 43, 0.1);
+      border-left: 4px solid #E8762B;
+      border-radius: 0 12px 12px 0;
+    }
+    .dj .emphasis.warn {
+      background: rgba(248, 113, 113, 0.1);
+      border-left-color: #f87171;
+    }
+    .dj .emphasis.success {
+      background: rgba(74, 222, 128, 0.1);
+      border-left-color: #4ade80;
+    }
+    .dj .grad-text {
+      background: linear-gradient(135deg, #E8762B 0%, #F59542 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .dj .terminal-box {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(232, 118, 43, 0.3);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 40px;
+      font-family: 'Space Grotesk', monospace;
+    }
+    .dj .terminal-box .line {
+      font-size: 36px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .dj .terminal-box .line:last-child { margin-bottom: 0; }
+    .dj .terminal-box .prompt { color: #F59542; }
+    .dj .terminal-box .num { color: #f59e0b; }
+    .dj .step-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(232, 118, 43, 0.15);
+    }
+    .dj .step-row:last-child { border-bottom: none; }
+    .dj .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #E8762B, #F59542);
+      border-radius: 12px;
+      font-family: 'Space Grotesk', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-right: 28px;
+      flex-shrink: 0;
+    }
+    .dj .card {
+      background: rgba(232, 118, 43, 0.08);
+      border: 1px solid rgba(232, 118, 43, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      margin-top: 40px;
+    }
+
+    /* J Accent Background */
+    .dj.acc-bg {
+      background: linear-gradient(160deg, #0f1c2e 0%, #1a3352 100%);
+    }
+    .dj.acc-bg::before {
+      background: linear-gradient(90deg, #E8762B, #F59542, #E8762B);
+    }
+
+    /* ============================================================
+       DESIGN L — STREET KINETIC (Navy/Orange)
+       Primary: #E8762B, Accent: #F59542
+       3D Dentists Brand Colors
+       ============================================================ */
+    .dl {
+      background: #0f1c2e;
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .dl .bg-word {
+      position: absolute;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 280px;
+      color: rgba(255,255,255,0.03);
+      letter-spacing: -10px;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .dl .sc {
+      position: relative;
+      z-index: 1;
+      height: calc(100% - 90px);
+      display: flex;
+      flex-direction: column;
+    }
+    .dl .sn {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.2);
+      z-index: 1;
+    }
+    .dl .brand {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 80px;
+      border-top: 2px solid rgba(232, 118, 43, 0.3);
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      z-index: 1;
+    }
+    .dl .tape {
+      display: inline-block;
+      background: #E8762B;
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      transform: rotate(-2deg);
+      margin-bottom: 40px;
+    }
+    .dl .h {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 0.95;
+      letter-spacing: -3px;
+    }
+    .dl .h.lg { font-size: 88px; margin-bottom: 40px; }
+    .dl .h.xl { font-size: 110px; margin-bottom: 48px; }
+    .dl .p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 44px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.6);
+    }
+    .dl .p b { font-weight: 700; color: #FFFFFF; }
+    .dl .emphasis {
+      font-family: 'Outfit', sans-serif;
+      font-size: 56px;
+      font-weight: 800;
+      color: #E8762B;
+      margin-top: 48px;
+    }
+    .dl .accent-text { color: #E8762B; }
+    .dl .step-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 32px 0;
+      border-bottom: 2px solid rgba(232, 118, 43, 0.2);
+    }
+    .dl .step-row:last-child { border-bottom: none; }
+    .dl .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: #E8762B;
+      color: #FFFFFF;
+      font-family: 'Outfit', sans-serif;
+      font-size: 44px;
+      font-weight: 900;
+      margin-right: 32px;
+      flex-shrink: 0;
+      transform: rotate(-2deg);
+    }
+    .dl .card {
+      background: rgba(232, 118, 43, 0.08);
+      border: 2px solid rgba(232, 118, 43, 0.3);
+      padding: 40px;
+      margin-top: 40px;
+    }
+
+    /* L Accent Background (Orange) */
+    .dl.acc-bg {
+      background: #E8762B;
+    }
+    .dl.acc-bg .bg-word { color: rgba(255,255,255,0.08); }
+    .dl.acc-bg .h { color: #FFFFFF; }
+    .dl.acc-bg .p { color: rgba(255,255,255,0.75); }
+    .dl.acc-bg .p b { color: #FFFFFF; }
+    .dl.acc-bg .tape { background: #0f1c2e; color: #E8762B; }
+    .dl.acc-bg .emphasis { color: #FFFFFF; }
+    .dl.acc-bg .brand { border-top-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
+    .dl.acc-bg .sn { color: rgba(255,255,255,0.3); }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     DESIGN J — TECH DASHBOARD (Navy/Orange)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design J — Tech Dashboard (Navy/Orange)</div>
+  <div class="design-row">
+
+    <!-- J1: HOOK/PROMISE -->
+    <div class="slide-wrap"><div class="sb dj cen">
+      <div class="sc">
+        <div class="status info">// PLAYBOOK_INIT</div>
+        <div class="h xl">The Implant<br><span class="grad-text">Math Playbook</span></div>
+        <p class="p" style="font-size:46px;max-width:800px">How one procedure shift can transform your practice economics.</p>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J2: PROBLEM -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">02 / 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status warn">// WARNING: VOLUME_TRAP</div>
+        <div class="h lg">The Volume Trap</div>
+        <p class="p">The average GP does <b>30 fillings a week</b> at about $200 each. That's $6,000 in production—but it requires 30 appointments, 30 insurance claims, 30 room setups.</p>
+        <div class="emphasis warn">Your margins tell a different story.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J3: PROBLEM PEAK -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">03 / 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status warn">// WARNING: HIDDEN_COST</div>
+        <div class="h lg">Running a Factory</div>
+        <p class="p">Every filling means a room breakdown, an insurance submission, a follow-up. Your team is exhausted by 2pm. Your overhead keeps climbing.</p>
+        <div class="emphasis warn">You're running a factory—not a practice.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J4: SOLUTION REVEAL — ACCENT BACKGROUND -->
+    <div class="slide-wrap"><div class="sb dj acc-bg cen">
+      <div class="sn">04 / 09</div>
+      <div class="sc">
+        <div class="status success">// STATUS: SOLUTION_FOUND</div>
+        <div class="h xl"><span class="grad-text">3 Patients.</span><br>Same Revenue.</div>
+        <p class="p" style="font-size:46px;max-width:800px">Three implant patients produce <b>$6,000-$7,000</b>. Three appointments. Minimal insurance. A fraction of the overhead.</p>
+        <p class="p" style="font-size:46px;margin-top:32px;color:rgba(255,255,255,0.8)"><b>Time to breathe. Time to lead.</b></p>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J5: FRAMEWORK 1 -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">05 / 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status process">// FRAMEWORK: ONE_PER_WEEK</div>
+        <div class="h lg">One-a-Week</div>
+        <p class="p">Below one implant per week, you're re-learning the workflow every time. You forget the steps. Your team forgets the setup.</p>
+        <div class="terminal-box">
+          <div class="line"><span class="prompt">&gt;</span> At one per week: <span class="num">confidence++</span></div>
+          <div class="line"><span class="prompt">&gt;</span> Team rhythm: <span class="num">established</span></div>
+        </div>
+        <div class="emphasis">Consistency beats intensity.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J6: FRAMEWORK 2 -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">06 / 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status process">// BENCHMARK: CONVERSION</div>
+        <div class="h lg">10-15% Conversion</div>
+        <p class="p">You don't need 50% case acceptance. If <b>10-15%</b> of your extraction patients convert to implants, you're hitting one per week.</p>
+        <div class="terminal-box">
+          <div class="line"><span class="prompt">&gt;</span> extractions: <span class="num">20</span></div>
+          <div class="line"><span class="prompt">&gt;</span> implants_needed: <span class="num">2-3</span></div>
+        </div>
+        <div class="emphasis">They're just not having the conversation.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J7: FRAMEWORK 3 -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn">07 / 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status process">// ACTION: AUDIT</div>
+        <div class="h lg">Monday Morning Audit</div>
+        <p class="p">Pull your last 20 extractions. How many got a bone graft? How many got treatment-planned? How many got scheduled?</p>
+        <p class="p" style="margin-top:32px">That gap is your <b>immediate opportunity</b>.</p>
+        <div class="emphasis">It's sitting in your existing patient base.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J8: PROOF — ACCENT BACKGROUND -->
+    <div class="slide-wrap"><div class="sb dj acc-bg cen">
+      <div class="sn">08 / 09</div>
+      <div class="sc">
+        <div class="status success">// STATUS: VALIDATED</div>
+        <div class="h xl">It's Not Theory.</div>
+        <p class="p" style="font-size:46px;max-width:850px">This is how T-Bone runs his practice. <b>A million dollars in personal production</b> with the goal of doing it in as few clinical days as possible.</p>
+        <p class="p" style="font-size:46px;margin-top:40px;color:rgba(255,255,255,0.8)">Hundreds of GPs have made this transition.</p>
+        <div class="emphasis success" style="margin-top:40px">It's a math problem with a clear solution.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- J9: CTA -->
+    <div class="slide-wrap"><div class="sb dj">
+      <div class="sn" style="opacity:0">09 / 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="status info">// EXECUTE: THIS_WEEK</div>
+        <div class="h lg" style="margin-bottom:48px">Your Three Steps</div>
+        <div class="step-row">
+          <div class="step-num">1</div>
+          <p class="p" style="padding-top:8px"><b>Audit</b> your last 20 extractions—count the missed opportunities.</p>
+        </div>
+        <div class="step-row">
+          <div class="step-num">2</div>
+          <p class="p" style="padding-top:8px"><b>Present</b> implants as the gold standard to every extraction patient.</p>
+        </div>
+        <div class="step-row">
+          <div class="step-num">3</div>
+          <p class="p" style="padding-top:8px"><b>Track</b> your conversion rate. One a week is closer than you think.</p>
+        </div>
+        <div class="card" style="text-align:center;margin-top:40px">
+          <p class="p" style="font-size:34px;color:rgba(255,255,255,0.9)">🎓 <b>3D Dentists</b> — We teach the business system, not just the clinical side.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     DESIGN F — EDITORIAL CLEAN (Navy/Orange)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design F — Editorial Clean (Navy/Orange)</div>
+  <div class="design-row">
+
+    <!-- F1: HOOK/PROMISE -->
+    <div class="slide-wrap"><div class="sb df cen">
+      <div class="sc">
+        <div class="sec-label">The Playbook</div>
+        <div class="h xl">The Implant<br><span class="accent-text">Math Playbook</span></div>
+        <p class="p" style="font-size:48px;max-width:800px">How one procedure shift can transform your practice economics.</p>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F2: PROBLEM -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Problem</div>
+        <div class="h lg">The Volume Trap</div>
+        <p class="p">The average GP does <b>30 fillings a week</b> at about $200 each. That's $6,000 in production—but it requires 30 appointments, 30 insurance claims, 30 room setups.</p>
+        <div class="emphasis">Your margins tell a different story.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F3: PROBLEM PEAK -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Hidden Cost</div>
+        <div class="h lg">Running a Factory</div>
+        <p class="p">Every filling means a room breakdown, an insurance submission, a follow-up. Your team is exhausted by 2pm. Your overhead keeps climbing.</p>
+        <div class="emphasis">You're running a factory—not a practice.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F4: SOLUTION REVEAL — ACCENT BACKGROUND -->
+    <div class="slide-wrap"><div class="sb df acc-bg cen">
+      <div class="sn">04 of 09</div>
+      <div class="sc">
+        <div class="sec-label">The Alternative</div>
+        <div class="h xl">3 Patients.<br>Same Revenue.</div>
+        <p class="p" style="font-size:48px;max-width:800px">Three implant patients produce <b>$6,000-$7,000</b>. Three appointments. Minimal insurance. A fraction of the overhead.</p>
+        <p class="p" style="font-size:48px;margin-top:32px"><b>Time to breathe. Time to lead.</b></p>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F5: FRAMEWORK 1 -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Framework</div>
+        <div class="h lg">One-a-Week</div>
+        <p class="p">Below one implant per week, you're re-learning the workflow every time. You forget the steps. Your team forgets the setup.</p>
+        <div class="card-left" style="margin-top:40px">
+          <p class="p" style="color:rgba(0,0,0,0.75)">At one per week, <b>confidence compounds</b>. Your team builds rhythm.</p>
+        </div>
+        <div class="emphasis">Consistency beats intensity.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F6: FRAMEWORK 2 -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Benchmark</div>
+        <div class="h lg">10-15% Conversion</div>
+        <p class="p">You don't need 50% case acceptance. If <b>10-15%</b> of your extraction patients convert to implants, you're hitting one per week.</p>
+        <div class="card" style="margin-top:40px">
+          <p class="p" style="font-size:40px;color:rgba(0,0,0,0.7);text-align:center">2-3 implants out of every 20 extractions. That's it.</p>
+        </div>
+        <div class="emphasis">They're just not having the conversation.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F7: FRAMEWORK 3 -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">The Action</div>
+        <div class="h lg">Monday Morning Audit</div>
+        <p class="p">Pull your last 20 extractions. How many got a bone graft? How many got treatment-planned? How many got scheduled?</p>
+        <p class="p" style="margin-top:32px">That gap is your <b>immediate opportunity</b>.</p>
+        <div class="emphasis">It's sitting in your existing patient base.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F8: PROOF — ACCENT BACKGROUND -->
+    <div class="slide-wrap"><div class="sb df acc-bg cen">
+      <div class="sn">08 of 09</div>
+      <div class="sc">
+        <div class="sec-label">The Proof</div>
+        <div class="h xl">It's Not Theory.</div>
+        <p class="p" style="font-size:48px;max-width:850px">This is how T-Bone runs his practice. <b>A million dollars in personal production</b> with the goal of doing it in as few clinical days as possible.</p>
+        <p class="p" style="font-size:48px;margin-top:40px">Hundreds of GPs have made this transition.</p>
+        <div class="emphasis" style="border-top:none;margin-top:32px">It's a math problem with a clear solution.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- F9: CTA -->
+    <div class="slide-wrap"><div class="sb df">
+      <div class="sn" style="opacity:0">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="sec-label">Start This Week</div>
+        <div class="h lg" style="margin-bottom:56px">Your Three Steps</div>
+        <div class="step-row">
+          <div class="step-num">1</div>
+          <p class="p" style="padding-top:12px"><b>Audit</b> your last 20 extractions—count the missed opportunities.</p>
+        </div>
+        <div class="step-row">
+          <div class="step-num">2</div>
+          <p class="p" style="padding-top:12px"><b>Present</b> implants as the gold standard to every extraction patient.</p>
+        </div>
+        <div class="step-row">
+          <div class="step-num">3</div>
+          <p class="p" style="padding-top:12px"><b>Track</b> your conversion rate. One a week is closer than you think.</p>
+        </div>
+        <div class="card" style="text-align:center;margin-top:48px">
+          <p class="p" style="font-size:36px;color:rgba(0,0,0,0.8)">🎓 <b>3D Dentists</b> — We teach the business system, not just the clinical side.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     DESIGN L — STREET KINETIC (Navy/Orange)
+     ============================================================ -->
+<div class="design-section">
+  <div class="design-label">Design L — Street Kinetic (Navy/Orange)</div>
+  <div class="design-row">
+
+    <!-- L1: HOOK/PROMISE -->
+    <div class="slide-wrap"><div class="sb dl cen">
+      <div class="bg-word" style="top:-40px;left:-20px">MATH</div>
+      <div class="sc">
+        <div class="tape">The Playbook</div>
+        <div class="h xl">The Implant<br><span class="accent-text">Math Playbook</span></div>
+        <p class="p" style="font-size:48px;max-width:800px">How one procedure shift can transform your practice economics.</p>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L2: PROBLEM -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word" style="bottom:100px;right:-60px">VOLUME</div>
+      <div class="sn">02 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape">The Problem</div>
+        <div class="h lg">The Volume Trap</div>
+        <p class="p">The average GP does <b>30 fillings a week</b> at about $200 each. That's $6,000 in production—but it requires 30 appointments, 30 insurance claims, 30 room setups.</p>
+        <div class="emphasis">Your margins tell a different story.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L3: PROBLEM PEAK -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word" style="top:200px;left:-40px">GRIND</div>
+      <div class="sn">03 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape">Hidden Cost</div>
+        <div class="h lg">Running a Factory</div>
+        <p class="p">Every filling means a room breakdown, an insurance submission, a follow-up. Your team is exhausted by 2pm. Your overhead keeps climbing.</p>
+        <div class="emphasis">You're running a factory—not a practice.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L4: SOLUTION REVEAL — ACCENT BACKGROUND (LIME) -->
+    <div class="slide-wrap"><div class="sb dl acc-bg cen">
+      <div class="bg-word" style="bottom:80px;right:-80px">VALUE</div>
+      <div class="sn">04 of 09</div>
+      <div class="sc">
+        <div class="tape">The Alternative</div>
+        <div class="h xl">3 Patients.<br>Same Revenue.</div>
+        <p class="p" style="font-size:48px;max-width:800px">Three implant patients produce <b>$6,000-$7,000</b>. Three appointments. Minimal insurance. A fraction of the overhead.</p>
+        <p class="p" style="font-size:48px;margin-top:32px"><b>Time to breathe. Time to lead.</b></p>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L5: FRAMEWORK 1 -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word" style="top:100px;right:-100px">RHYTHM</div>
+      <div class="sn">05 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape">Framework</div>
+        <div class="h lg">One-a-Week</div>
+        <p class="p">Below one implant per week, you're re-learning the workflow every time. You forget the steps. Your team forgets the setup.</p>
+        <p class="p" style="margin-top:32px">At one per week, <b>confidence compounds</b>. Your team builds rhythm.</p>
+        <div class="emphasis">Consistency beats intensity.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L6: FRAMEWORK 2 -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word" style="bottom:150px;left:-60px">CONVERT</div>
+      <div class="sn">06 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape">Benchmark</div>
+        <div class="h lg">10-15%</div>
+        <p class="p">You don't need 50% case acceptance. If <b>10-15%</b> of your extraction patients convert to implants, you're hitting one per week.</p>
+        <p class="p" style="margin-top:32px">That's 2-3 implants out of every 20 extractions.</p>
+        <div class="emphasis">They're just not having the conversation.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L7: FRAMEWORK 3 -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word" style="top:180px;right:-40px">AUDIT</div>
+      <div class="sn">07 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape">Action</div>
+        <div class="h lg">Monday Audit</div>
+        <p class="p">Pull your last 20 extractions. How many got a bone graft? How many got treatment-planned? How many got scheduled?</p>
+        <p class="p" style="margin-top:32px">That gap is your <b>immediate opportunity</b>.</p>
+        <div class="emphasis">It's sitting in your existing patient base.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L8: PROOF — ACCENT BACKGROUND (LIME) -->
+    <div class="slide-wrap"><div class="sb dl acc-bg cen">
+      <div class="bg-word" style="top:-20px;left:-40px">PROOF</div>
+      <div class="sn">08 of 09</div>
+      <div class="sc">
+        <div class="tape">Validated</div>
+        <div class="h xl">It's Not Theory.</div>
+        <p class="p" style="font-size:48px;max-width:850px">This is how T-Bone runs his practice. <b>A million dollars in personal production</b> with the goal of doing it in as few clinical days as possible.</p>
+        <p class="p" style="font-size:48px;margin-top:40px">Hundreds of GPs have made this transition.</p>
+        <div class="emphasis" style="margin-top:40px">It's a math problem with a clear solution.</div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+    <!-- L9: CTA -->
+    <div class="slide-wrap"><div class="sb dl">
+      <div class="bg-word" style="bottom:100px;right:-100px">GO</div>
+      <div class="sn" style="opacity:0">09 of 09</div>
+      <div class="sc" style="justify-content:center">
+        <div class="tape">This Week</div>
+        <div class="h lg" style="margin-bottom:48px">Three Steps</div>
+        <div class="step-row">
+          <div class="step-num">1</div>
+          <p class="p" style="padding-top:14px"><b>Audit</b> your last 20 extractions—count the missed opportunities.</p>
+        </div>
+        <div class="step-row">
+          <div class="step-num">2</div>
+          <p class="p" style="padding-top:14px"><b>Present</b> implants as the gold standard to every extraction patient.</p>
+        </div>
+        <div class="step-row">
+          <div class="step-num">3</div>
+          <p class="p" style="padding-top:14px"><b>Track</b> your conversion rate. One a week is closer than you think.</p>
+        </div>
+        <div class="card" style="text-align:center;margin-top:40px">
+          <p class="p" style="font-size:36px;color:rgba(255,255,255,0.9)">🎓 <b>3D Dentists</b> — We teach the business system, not just the clinical side.</p>
+        </div>
+      </div>
+      <div class="brand"><span>Dentistry Made Simple</span><span>—</span><span>3D Dentists</span></div>
+    </div></div>
+
+  </div>
+</div>
+
+</body>
+</html>
