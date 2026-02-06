@@ -750,6 +750,48 @@
     .dl.acc-bg .emphasis { color: #FFFFFF; }
     .dl.acc-bg .brand { border-top-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
     .dl.acc-bg .sn { color: rgba(255,255,255,0.3); }
+
+    /* ============================================================
+       RESPONSIVE — Mobile
+       ============================================================ */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+      .design-section {
+        margin-bottom: 50px;
+      }
+      .design-label {
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 16px;
+      }
+      .design-row {
+        gap: 12px;
+      }
+      .slide-wrap {
+        width: 280px;
+        height: 350px;
+        border-radius: 8px;
+      }
+      .sb {
+        transform: scale(0.259);
+      }
+    }
+
+    /* Even smaller phones */
+    @media (max-width: 400px) {
+      body {
+        padding: 12px;
+      }
+      .slide-wrap {
+        width: 240px;
+        height: 300px;
+      }
+      .sb {
+        transform: scale(0.222);
+      }
+    }
   </style>
 </head>
 <body>
