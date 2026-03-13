@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Ayala — Financial Dashboard</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.5; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 28px; font-weight: 700; color: #f8fafc; margin-bottom: 4px; }
+  .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 32px; }
+
+  /* Top stat cards */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .stat-card { background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; }
+  .stat-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; margin-bottom: 4px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; }
+  .stat-card .detail { font-size: 12px; color: #64748b; margin-top: 4px; }
+  .green { color: #4ade80; }
+  .red { color: #f87171; }
+  .amber { color: #fbbf24; }
+  .blue { color: #60a5fa; }
+  .purple { color: #c084fc; }
+  .white { color: #f8fafc; }
+
+  /* Sections */
+  .section { background: #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #334155; }
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .section-title .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; color: #94a3b8; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #334155; }
+  td { padding: 10px 12px; border-bottom: 1px solid #1e293b; }
+  tr:hover td { background: #263044; }
+  .amount { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+  th.amount { text-align: right; }
+  .total-row td { border-top: 2px solid #475569; font-weight: 700; background: #0f172a; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .badge-red { background: #991b1b; color: #fca5a5; }
+  .badge-amber { background: #92400e; color: #fde68a; }
+  .badge-green { background: #166534; color: #86efac; }
+  .badge-blue { background: #1e40af; color: #93c5fd; }
+  .badge-purple { background: #581c87; color: #d8b4fe; }
+
+  /* Deployment steps */
+  .step { margin-bottom: 20px; }
+  .step-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .step-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0; }
+  .step-title { font-weight: 600; font-size: 15px; }
+  .step-amount { margin-left: auto; font-weight: 700; font-size: 18px; font-variant-numeric: tabular-nums; }
+  .step-items { margin-left: 38px; }
+  .step-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #1e3a5f20; font-size: 13px; color: #cbd5e1; }
+  .step-item .item-amt { font-variant-numeric: tabular-nums; color: #e2e8f0; }
+
+  /* Progress bars */
+  .progress-wrap { margin-top: 6px; }
+  .progress-bar { height: 6px; background: #334155; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+  .progress-fill { height: 100%; border-radius: 3px; }
+
+  /* Payoff priority */
+  .priority-card { display: flex; align-items: center; gap: 16px; padding: 14px; background: #0f172a; border-radius: 8px; margin-bottom: 8px; }
+  .priority-rank { font-size: 20px; font-weight: 800; color: #475569; width: 30px; text-align: center; }
+  .priority-info { flex: 1; }
+  .priority-name { font-weight: 600; font-size: 14px; }
+  .priority-detail { font-size: 12px; color: #94a3b8; }
+  .priority-amount { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  /* Tithe section */
+  .tithe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tithe-item { background: #0f172a; border-radius: 8px; padding: 14px; }
+  .tithe-source { font-size: 12px; color: #94a3b8; }
+  .tithe-amount { font-size: 20px; font-weight: 700; color: #c084fc; }
+  .tithe-from { font-size: 12px; color: #64748b; }
+
+  /* Alert banner */
+  .alert { background: linear-gradient(135deg, #7f1d1d, #991b1b); border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .alert-green { background: linear-gradient(135deg, #14532d, #166534); }
+  .alert-icon { font-size: 24px; }
+  .alert-text { font-size: 14px; }
+  .alert-text strong { color: #fca5a5; }
+  .alert-green .alert-text strong { color: #86efac; }
+
+  /* Paid items */
+  .paid { text-decoration: line-through; opacity: 0.5; }
+  .paid-row td { opacity: 0.6; }
+  .step-item.done { opacity: 0.5; }
+  .step-item.done span:first-child { text-decoration: line-through; }
+  .check { color: #4ade80; margin-right: 4px; }
+
+  /* Fee callout */
+  .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .fee-card { background: #0f172a; border-radius: 8px; padding: 14px; text-align: center; }
+  .fee-type { font-size: 11px; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.5px; }
+  .fee-amount { font-size: 22px; font-weight: 700; color: #f87171; margin: 4px 0; }
+  .fee-detail { font-size: 11px; color: #64748b; }
+
+  @media (max-width: 768px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .tithe-grid { grid-template-columns: 1fr; }
+    .fee-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Jonathan Ayala — Financial Dashboard</h1>
+<p class="subtitle">Based on Jan & Feb 2026 statements + live transactions · Updated March 12, 2026</p>
+
+<!-- ALERTS -->
+<div class="alert alert-green">
+  <span class="alert-icon">&#10003;</span>
+  <div class="alert-text"><strong>Major progress since 3/5:</strong> All back rent paid, parents repaid, Santander caught up, 3 of 4 credit cards made current, tithes sent. $31,554 deployed of $36,725.</div>
+</div>
+<div class="alert" style="background: linear-gradient(135deg, #92400e, #a16207);">
+  <span class="alert-icon">&#9889;</span>
+  <div class="alert-text"><strong>Still remaining:</strong> SCE $159.08 · Glendale W&amp;P $556.33 · BofA Personal CC min $232 · Then deploy rest to high-interest debt.</div>
+</div>
+
+<!-- TOP STAT CARDS -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="label">Total Funds (Started With)</div>
+    <div class="value green">$47,725</div>
+    <div class="detail">Reframe $8,982 + IVM $38,742</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Tithes & Offerings</div>
+    <div class="value purple">$11,000</div>
+    <div class="detail">$5,500 to Gary Zamora + $5,500 to Sahuarita</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Net Deployable</div>
+    <div class="value blue">$36,725</div>
+    <div class="detail">After tithes (was $32,725 with old estimate)</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Cash Remaining</div>
+    <div class="value green">$16,171</div>
+    <div class="detail">IVM $8,395 + Reframe $6,732 + BofA $1,044</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Monthly Interest (Current)</div>
+    <div class="value amber">$1,171/mo</div>
+    <div class="detail">$14,052 per year in interest alone</div>
+  </div>
+</div>
+
+<!-- CHECKING ACCOUNTS -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#60a5fa"></span> Checking Accounts — Live Balances (3/12)</div>
+  <table>
+    <tr><th>Account</th><th>Feb Statement</th><th class="amount">Current Balance</th><th>Status</th></tr>
+    <tr>
+      <td>BofA Personal (#9797)</td>
+      <td class="amount">$1,043.51</td>
+      <td class="amount green">~$1,043.51</td>
+      <td><span class="badge badge-green">Current</span></td>
+    </tr>
+    <tr>
+      <td>Reframe Solutions (#2292)</td>
+      <td class="amount red">-$715.42</td>
+      <td class="amount green">$6,732.30</td>
+      <td><span class="badge badge-green">Active</span></td>
+    </tr>
+    <tr>
+      <td>InnerView Media (#5649)</td>
+      <td class="amount red">-$1,024.57</td>
+      <td class="amount green">$8,395.16</td>
+      <td><span class="badge badge-green">Active</span></td>
+    </tr>
+  </table>
+  <div style="margin-top:12px; font-size:12px; color:#4ade80;">
+    All deposit holds cleared. Total across accounts: <strong>$16,170.97</strong>
+  </div>
+</div>
+
+<!-- CREDIT CARDS & DEBT -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#f87171"></span> Credit Cards & Loans — Full Debt Picture</div>
+  <table>
+    <tr><th>Account</th><th class="amount">Statement Bal</th><th class="amount">Payment Made</th><th class="amount">Est. Current</th><th class="amount">APR</th><th>Status</th></tr>
+    <tr>
+      <td>PayPal Credit (#3199)</td>
+      <td class="amount">$7,021.62</td>
+      <td class="amount green">$478.00</td>
+      <td class="amount">~$6,544</td>
+      <td class="amount">29.64%</td>
+      <td><span class="badge badge-green">$478 scheduled &#10003;</span></td>
+    </tr>
+    <tr>
+      <td>Barclay Aviator Red (#5016)</td>
+      <td class="amount">$11,680.88</td>
+      <td class="amount green">$839.73</td>
+      <td class="amount">~$10,841</td>
+      <td class="amount">29.49%</td>
+      <td><span class="badge badge-green">Min Paid &#10003;</span></td>
+    </tr>
+    <tr>
+      <td>IVM Business CC (#1004)</td>
+      <td class="amount">$12,285.96</td>
+      <td class="amount green">$792.00</td>
+      <td class="amount">~$11,494</td>
+      <td class="amount">24.74%</td>
+      <td><span class="badge badge-green">Min Paid &#10003;</span></td>
+    </tr>
+    <tr>
+      <td>Capital One Platinum (#7967)</td>
+      <td class="amount">$9,965.58</td>
+      <td class="amount green">$955.00</td>
+      <td class="amount">~$9,011</td>
+      <td class="amount">22.40%</td>
+      <td><span class="badge badge-green">Min Paid &#10003;</span></td>
+    </tr>
+    <tr>
+      <td>BofA Personal CC (#2829)</td>
+      <td class="amount">$9,815.47</td>
+      <td class="amount">—</td>
+      <td class="amount">$9,815</td>
+      <td class="amount green">0.00%*</td>
+      <td><span class="badge badge-amber">$232 min still due</span></td>
+    </tr>
+    <tr>
+      <td>Santander Auto — Tesla Model Y</td>
+      <td class="amount">$46,825.33</td>
+      <td class="amount green">$1,709.43</td>
+      <td class="amount">$46,825</td>
+      <td class="amount">8.94%</td>
+      <td><span class="badge badge-green">Caught Up &#10003;</span></td>
+    </tr>
+    <tr class="total-row">
+      <td>TOTAL DEBT</td>
+      <td class="amount white">$97,595</td>
+      <td class="amount green">$4,774</td>
+      <td class="amount white">~$94,530</td>
+      <td class="amount"></td>
+      <td></td>
+    </tr>
+  </table>
+  <div style="margin-top:10px; font-size:12px; color:#fbbf24;">* BofA Personal CC showing 0% — likely a promotional rate. Check expiration date!</div>
+</div>
+
+<!-- FEES PAID -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#f87171"></span> Fees Paid (Jan + Feb 2026)</div>
+  <div class="fee-grid">
+    <div class="fee-card">
+      <div class="fee-type">Overdraft Fees</div>
+      <div class="fee-amount">$200.00</div>
+      <div class="fee-detail">15× IVM ($150) · 5× Reframe ($50)</div>
+    </div>
+    <div class="fee-card">
+      <div class="fee-type">Credit Card Late Fees</div>
+      <div class="fee-amount">$249.00</div>
+      <div class="fee-detail">BofA CC $80 · IVM CC $49 · Cap One $80 · Barclay $40</div>
+    </div>
+    <div class="fee-card">
+      <div class="fee-type">Bank Service Fees</div>
+      <div class="fee-amount">$26.50</div>
+      <div class="fee-detail">BofA Personal monthly maintenance</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:14px; font-size: 18px; font-weight: 700; color: #f87171;">
+    Total fees burned in 2 months: $475.50
+  </div>
+</div>
+
+<!-- ADDITIONAL OBLIGATIONS -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#fbbf24"></span> Additional Obligations</div>
+  <table>
+    <tr><th>Obligation</th><th class="amount">Amount</th><th>Details</th><th>Status</th></tr>
+    <tr class="paid-row">
+      <td><span class="check">&#10003;</span> Apartment Rent — March</td>
+      <td class="amount">$3,183.00</td>
+      <td style="font-size:12px; color:#94a3b8;">Paid 3/5 via Apple Cash to Matt Tadross</td>
+      <td><span class="badge badge-green">Paid &#10003;</span></td>
+    </tr>
+    <tr class="paid-row">
+      <td><span class="check">&#10003;</span> Apartment Rent — February</td>
+      <td class="amount">$3,223.00</td>
+      <td style="font-size:12px; color:#94a3b8;">Paid 3/12 via Apple Cash ($3,183 + $40 late fee)</td>
+      <td><span class="badge badge-green">Paid &#10003;</span></td>
+    </tr>
+    <tr class="paid-row">
+      <td><span class="check">&#10003;</span> Office Rent — March</td>
+      <td class="amount">$2,250.00</td>
+      <td style="font-size:12px; color:#94a3b8;">Paid 3/6 via Zelle to David Storrs (from Reframe)</td>
+      <td><span class="badge badge-green">Paid &#10003;</span></td>
+    </tr>
+    <tr class="paid-row">
+      <td><span class="check">&#10003;</span> Office Rent — February</td>
+      <td class="amount">$2,325.00</td>
+      <td style="font-size:12px; color:#94a3b8;">Paid 3/12 via Zelle to David Storrs ($2,250 + $75 late fee)</td>
+      <td><span class="badge badge-green">Paid &#10003;</span></td>
+    </tr>
+    <tr>
+      <td>SCE — Apartment Power</td>
+      <td class="amount">$159.08</td>
+      <td style="font-size:12px; color:#94a3b8;"><span class="check">&#10003;</span> $445.41 paid 3/5 — $159.08 remaining</td>
+      <td><span class="badge badge-amber">$159 remaining</span></td>
+    </tr>
+    <tr>
+      <td>Glendale Water & Power — Office</td>
+      <td class="amount">$556.33</td>
+      <td style="font-size:12px; color:#94a3b8;">604 Sonora Ave · Due 2/2 (past due)</td>
+      <td><span class="badge badge-red">Unpaid</span></td>
+    </tr>
+    <tr class="paid-row">
+      <td><span class="check">&#10003;</span> Hotel Rooms — Repay Parents</td>
+      <td class="amount">$3,203.73</td>
+      <td style="font-size:12px; color:#94a3b8;">Paid 3/12 via Zelle to Rosalie Ayala ($1,795.56 + $1,408.17)</td>
+      <td><span class="badge badge-green">Paid &#10003;</span></td>
+    </tr>
+    <tr class="total-row">
+      <td>REMAINING OBLIGATIONS</td>
+      <td class="amount amber">$715.41</td>
+      <td style="font-size:12px; color:#94a3b8;">$14,184 of $14,900 paid (95%). SCE + Glendale still due.</td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+<!-- TITHES & OFFERINGS -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#c084fc"></span> Tithes & Offerings <span class="badge badge-green" style="margin-left:8px;">SENT</span></div>
+  <div style="margin-bottom:12px; font-size:13px; color:#94a3b8;">
+    Planned: 20% of income — Reframe $2,000 + Kuraray $6,600 + Lanmark $1,400 + Gary Zamora $880 = <strong style="color:#c084fc;">$10,880</strong>
+  </div>
+  <div class="tithe-grid">
+    <div class="tithe-item" style="border: 1px solid #166534;">
+      <div class="tithe-source"><span class="check">&#10003;</span> Gary Zamora Ministries</div>
+      <div class="tithe-amount">$5,500</div>
+      <div class="tithe-from">Sent 3/12 from IVM · Processing</div>
+    </div>
+    <div class="tithe-item" style="border: 1px solid #166534;">
+      <div class="tithe-source"><span class="check">&#10003;</span> Sahuarita House of Worship</div>
+      <div class="tithe-amount">$5,500</div>
+      <div class="tithe-from">Sent 3/12 from IVM · Processing</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:14px; font-size: 20px; font-weight: 700; color: #c084fc;">
+    Total Tithes Sent: $11,000 <span style="font-size:13px; color:#94a3b8; font-weight:400;">(~$120 above planned $10,880)</span>
+  </div>
+</div>
+
+<!-- DEPLOYMENT STRATEGY -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#4ade80"></span> $36,725 Deployment Strategy — Live Tracker</div>
+  <p style="font-size:13px; color:#94a3b8; margin-bottom:6px;">$47,725 total funds − $11,000 tithes = $36,725 net deployable</p>
+  <p style="font-size:13px; color:#4ade80; margin-bottom:20px;">&#10003; ~$25,554 deployed so far · ~$11,171 in accounts above $5K reserve</p>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#166534;">1</div>
+      <div class="step-title" style="opacity:0.6;">Emergencies — Stop the Bleeding</div>
+      <div class="step-amount" style="color:#4ade80;">$2,154 paid <span style="font-size:12px; color:#fbbf24; font-weight:400;">($715 left)</span></div>
+    </div>
+    <div class="step-items">
+      <div class="step-item done"><span><span class="check">&#10003;</span> SCE Power — $445.41 paid 3/5, $159.08 remaining</span><span class="item-amt" style="color:#fbbf24;">$159 left</span></div>
+      <div class="step-item"><span>Glendale Water & Power — office</span><span class="item-amt" style="color:#f87171;">$556.33</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> Santander Auto — caught up ($1,709.43 paid 3/6)</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#166534;">2</div>
+      <div class="step-title" style="opacity:0.6;">Get All Credit Cards Current</div>
+      <div class="step-amount" style="color:#4ade80;">$2,587 paid <span style="font-size:12px; color:#fbbf24; font-weight:400;">($232 left)</span></div>
+    </div>
+    <div class="step-items">
+      <div class="step-item done"><span><span class="check">&#10003;</span> Capital One — $955 paid 3/9</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> Barclay Aviator — $839.73 paid 3/10</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> IVM Business CC — $792 paid 3/12</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item"><span>BofA Personal CC — minimum payment</span><span class="item-amt" style="color:#f87171;">$232.00</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> PayPal Credit — $478 scheduled 3/12</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#166534;">3</div>
+      <div class="step-title" style="opacity:0.6;">Back Rent & Repay Parents</div>
+      <div class="step-amount" style="color:#4ade80;">ALL PAID &#10003;</div>
+    </div>
+    <div class="step-items">
+      <div class="step-item done"><span><span class="check">&#10003;</span> Apt March — $3,183 to Matt Tadross (3/5)</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> Apt February — $3,223 to Matt Tadross (3/12, +$40 late)</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> Office March — $2,250 to David Storrs (3/6, Reframe)</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> Office February — $2,325 to David Storrs (3/12, +$75 late)</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+      <div class="step-item done"><span><span class="check">&#10003;</span> Hotel rooms — $3,203.73 to Rosalie Ayala (3/12)</span><span class="item-amt" style="color:#4ade80;">Done</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#3b82f6;">4</div>
+      <div class="step-title">Cash Reserve</div>
+      <div class="step-amount blue">$16,171 in accounts</div>
+    </div>
+    <div class="step-items">
+      <div class="step-item"><span>After remaining obligations ($947), keep ~$2,500 buffer</span><span class="item-amt">$2,500.00</span></div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-header">
+      <div class="step-num" style="background:#22c55e;">5</div>
+      <div class="step-title">High-Interest Debt Payoff</div>
+      <div class="step-amount green">~$12,724 available</div>
+    </div>
+    <div class="step-items">
+      <div class="step-item"><span>PayPal Credit (29.64%) — <strong>PAY REMAINING ~$6,544</strong></span><span class="item-amt">$6,544</span></div>
+      <div class="step-item"><span>Barclay Aviator (29.49%) — partial paydown with remainder</span><span class="item-amt">~$6,180</span></div>
+    </div>
+  </div>
+
+  <!-- Allocation bar -->
+  <div style="margin-top:24px; padding:16px; background:#0f172a; border-radius:8px;">
+    <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+      <span style="font-size:13px; color:#94a3b8;">Deployment progress — $36,725 budget</span>
+      <span style="font-size:13px; font-weight:600; color:#4ade80;">86% deployed</span>
+    </div>
+    <div style="display:flex; height:24px; border-radius:6px; overflow:hidden; gap:2px;">
+      <div style="width:68%; background:repeating-linear-gradient(135deg,#166534,#166534 4px,#22c55e 4px,#22c55e 8px);" title="Already Deployed ~$25,554"></div>
+      <div style="width:2.6%; background:#fbbf24;" title="Remaining obligations $947"></div>
+      <div style="width:6.8%; background:#3b82f6;" title="Reserve $2,500"></div>
+      <div style="width:22.6%; background:#22c55e;" title="Debt Payoff ~$12,724"></div>
+    </div>
+    <div style="display:flex; gap:16px; margin-top:8px; flex-wrap:wrap;">
+      <span style="font-size:11px; color:#94a3b8;"><span style="color:#22c55e;">▨</span> Deployed $25,554</span>
+      <span style="font-size:11px; color:#94a3b8;"><span style="color:#fbbf24;">■</span> Remaining bills $947</span>
+      <span style="font-size:11px; color:#94a3b8;"><span style="color:#3b82f6;">■</span> Reserve $2,500</span>
+      <span style="font-size:11px; color:#94a3b8;"><span style="color:#22c55e;">■</span> Debt payoff $12,724</span>
+    </div>
+  </div>
+</div>
+
+<!-- REMAINING DEBT AFTER DEPLOYMENT -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#fbbf24"></span> Remaining Debt After Full Deployment</div>
+  <table>
+    <tr><th>Account</th><th class="amount">Remaining Balance</th><th class="amount">APR</th><th class="amount">Monthly Interest</th></tr>
+    <tr class="paid-row">
+      <td><span class="check">&#10003;</span> PayPal Credit</td>
+      <td class="amount" style="color:#4ade80;">$0 — PAID IN FULL</td>
+      <td class="amount">29.64%</td>
+      <td class="amount" style="color:#4ade80;">$0</td>
+    </tr>
+    <tr>
+      <td>Barclay Aviator Red</td>
+      <td class="amount">~$4,661</td>
+      <td class="amount">29.49%</td>
+      <td class="amount amber">~$115</td>
+    </tr>
+    <tr>
+      <td>IVM Business CC</td>
+      <td class="amount">~$11,494</td>
+      <td class="amount">24.74%</td>
+      <td class="amount amber">~$237</td>
+    </tr>
+    <tr>
+      <td>Capital One Platinum</td>
+      <td class="amount">~$9,011</td>
+      <td class="amount">22.40%</td>
+      <td class="amount amber">~$168</td>
+    </tr>
+    <tr>
+      <td>BofA Personal CC</td>
+      <td class="amount">~$9,583</td>
+      <td class="amount green">0.00%*</td>
+      <td class="amount">$0</td>
+    </tr>
+    <tr>
+      <td>Santander Auto — Tesla Model Y <span class="badge badge-green" style="margin-left:6px;">Caught Up</span></td>
+      <td class="amount">$46,825</td>
+      <td class="amount">8.94%</td>
+      <td class="amount amber">~$349</td>
+    </tr>
+    <tr class="total-row">
+      <td>TOTAL REMAINING</td>
+      <td class="amount white">~$81,574</td>
+      <td class="amount"></td>
+      <td class="amount amber">~$869/mo</td>
+    </tr>
+  </table>
+</div>
+
+<!-- INTEREST IMPACT -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#4ade80"></span> Interest Impact</div>
+  <div class="stats-row" style="margin-bottom:0;">
+    <div class="stat-card" style="border-color:#475569;">
+      <div class="label">Before</div>
+      <div class="value red">$1,171/mo</div>
+      <div class="detail">$14,052 per year</div>
+    </div>
+    <div class="stat-card" style="border-color:#475569;">
+      <div class="label">After Full Deployment</div>
+      <div class="value amber">$869/mo</div>
+      <div class="detail">$10,428 per year</div>
+    </div>
+    <div class="stat-card" style="border-color:#22c55e;">
+      <div class="label">Monthly Savings</div>
+      <div class="value green">$302/mo</div>
+      <div class="detail">$3,624 per year saved</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT PRIORITIES -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:#60a5fa"></span> Next Priorities (From Future Cash Flow)</div>
+  <div class="priority-card">
+    <div class="priority-rank">1</div>
+    <div class="priority-info">
+      <div class="priority-name">Finish Barclay Aviator Red</div>
+      <div class="priority-detail">29.49% APR — highest rate remaining</div>
+    </div>
+    <div class="priority-amount red">$4,661</div>
+  </div>
+  <div class="priority-card">
+    <div class="priority-rank">2</div>
+    <div class="priority-info">
+      <div class="priority-name">IVM Business CC</div>
+      <div class="priority-detail">24.74% APR</div>
+    </div>
+    <div class="priority-amount amber">$11,494</div>
+  </div>
+  <div class="priority-card">
+    <div class="priority-rank">3</div>
+    <div class="priority-info">
+      <div class="priority-name">Capital One Platinum</div>
+      <div class="priority-detail">22.40% APR</div>
+    </div>
+    <div class="priority-amount amber">$9,011</div>
+  </div>
+  <div class="priority-card">
+    <div class="priority-rank">4</div>
+    <div class="priority-info">
+      <div class="priority-name">Check BofA Personal CC Promo Expiration</div>
+      <div class="priority-detail">Currently 0% — could jump to 20%+ when promo ends</div>
+    </div>
+    <div class="priority-amount purple">$9,583</div>
+  </div>
+  <div class="priority-card">
+    <div class="priority-rank">5</div>
+    <div class="priority-info">
+      <div class="priority-name">Continue Santander Auto Payments</div>
+      <div class="priority-detail">8.94% APR — lowest rate, secured, keep current</div>
+    </div>
+    <div class="priority-amount" style="color:#64748b;">$46,825</div>
+  </div>
+</div>
+
+<div style="text-align:center; padding:24px; color:#475569; font-size:12px;">
+  Generated March 12, 2026 · Not financial advice · Consult a licensed financial advisor for personalized guidance
+</div>
+
+</div>
+</body>
+</html>
