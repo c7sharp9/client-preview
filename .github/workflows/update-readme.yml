@@ -1,0 +1,52 @@
+name: Regenerate README
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - README.md
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate README.md
+        run: |
+          node -e "
+          const fs = require('fs'), path = require('path');
+          const base = 'https://c7sharp9.github.io/client-preview';
+          const entries = fs.readdirSync('.', { withFileTypes: true });
+          const pages = [];
+          for (const e of entries) {
+            if (!e.isFile() || !e.name.endsWith('.html') || e.name === 'index.html') continue;
+            const stat = fs.statSync(e.name);
+            const slug = e.name.replace(/\.html$/, '');
+            const title = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            pages.push({ name: e.name, slug, title, mtime: stat.mtime });
+          }
+          pages.sort((a, b) => b.mtime - a.mtime);
+          const rows = pages.map(p => {
+            const date = p.mtime.toISOString().slice(0, 10);
+            return '| ' + p.title + ' | ' + date + ' | ' + base + '/' + p.name + ' |';
+          }).join('\n');
+          const md = '# Quick-Share Pages\n\n' +
+            pages.length + ' published page' + (pages.length === 1 ? '' : 's') + '. Newest first.\n\n' +
+            '| Page | Updated | URL |\n' +
+            '| --- | --- | --- |\n' +
+            rows + '\n';
+          fs.writeFileSync('README.md', md);
+          console.log('README.md regenerated with ' + pages.length + ' pages');
+          "
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Auto-regenerate README"
+          git push
