@@ -1,6 +1,6 @@
 # Quick-Share Pages
 
-9 published pages. Newest first.
+8 published pages. Newest first.
 
 | Page | Updated | URL |
 | --- | --- | --- |
@@ -11,5 +11,4 @@
 | Implant Math Playbook | 2026-04-15 | https://c7sharp9.github.io/client-preview/implant-math-playbook.html |
 | Campbell Profile Selects | 2026-04-15 | https://c7sharp9.github.io/client-preview/campbell-profile-selects.html |
 | Bin Profile Selects | 2026-04-15 | https://c7sharp9.github.io/client-preview/bin-profile-selects.html |
-| Apekian Katana One Profile B Roll | 2026-04-15 | https://c7sharp9.github.io/client-preview/apekian-katana-one-profile-b-roll.html |
 | Financial_Dashboard | 2026-04-15 | https://c7sharp9.github.io/client-preview/Financial_Dashboard.html |
