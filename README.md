@@ -1,11 +1,12 @@
 # Quick-Share Pages
 
-10 published pages. Newest first.
+11 published pages. Newest first.
 
 | Page | Updated | URL |
 | --- | --- | --- |
 | Vasquez Implant Block Workflow Selects | 2026-04-21 | https://c7sharp9.github.io/client-preview/vasquez-implant-block-workflow-selects.html |
 | Thomas Profile Selects | 2026-04-21 | https://c7sharp9.github.io/client-preview/thomas-profile-selects.html |
+| Sean Han Profile B Roll | 2026-04-21 | https://c7sharp9.github.io/client-preview/sean-han-profile-b-roll.html |
 | Kim Profile Selects | 2026-04-21 | https://c7sharp9.github.io/client-preview/kim-profile-selects.html |
 | Linkedin Doc Preview | 2026-04-21 | https://c7sharp9.github.io/client-preview/linkedin-doc-preview.html |
 | Implant Math Playbook | 2026-04-21 | https://c7sharp9.github.io/client-preview/implant-math-playbook.html |
