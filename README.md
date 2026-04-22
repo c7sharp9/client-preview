@@ -1,15 +1,16 @@
 # Quick-Share Pages
 
-12 published pages. Newest first.
+13 published pages. Newest first.
 
 | Page | Updated | URL |
 | --- | --- | --- |
 | Vasquez Implant Block Workflow Selects | 2026-04-22 | https://c7sharp9.github.io/client-preview/vasquez-implant-block-workflow-selects.html |
 | Thomas Profile Selects | 2026-04-22 | https://c7sharp9.github.io/client-preview/thomas-profile-selects.html |
 | Sean Han Profile B Roll | 2026-04-22 | https://c7sharp9.github.io/client-preview/sean-han-profile-b-roll.html |
+| Sean Han Course B Roll B | 2026-04-22 | https://c7sharp9.github.io/client-preview/sean-han-course-b-roll-b.html |
 | Sean Han Course B Roll A | 2026-04-22 | https://c7sharp9.github.io/client-preview/sean-han-course-b-roll-a.html |
-| Linkedin Doc Preview | 2026-04-22 | https://c7sharp9.github.io/client-preview/linkedin-doc-preview.html |
 | Kim Profile Selects | 2026-04-22 | https://c7sharp9.github.io/client-preview/kim-profile-selects.html |
+| Linkedin Doc Preview | 2026-04-22 | https://c7sharp9.github.io/client-preview/linkedin-doc-preview.html |
 | Implant Math Playbook | 2026-04-22 | https://c7sharp9.github.io/client-preview/implant-math-playbook.html |
 | Campbell Profile Selects | 2026-04-22 | https://c7sharp9.github.io/client-preview/campbell-profile-selects.html |
 | Bin Profile Selects | 2026-04-22 | https://c7sharp9.github.io/client-preview/bin-profile-selects.html |
