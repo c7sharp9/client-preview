@@ -1,6 +1,6 @@
 # Quick-Share Pages
 
-15 published pages. Newest first.
+16 published pages. Newest first.
 
 | Page | Updated | URL |
 | --- | --- | --- |
@@ -11,6 +11,7 @@
 | Sean Han Course B Roll A | 2026-05-06 | https://c7sharp9.github.io/client-preview/sean-han-course-b-roll-a.html |
 | Lmt Sean B Roll | 2026-05-06 | https://c7sharp9.github.io/client-preview/lmt-sean-b-roll.html |
 | Lmt Jean B Roll | 2026-05-06 | https://c7sharp9.github.io/client-preview/lmt-jean-b-roll.html |
+| Lmt David B Roll | 2026-05-06 | https://c7sharp9.github.io/client-preview/lmt-david-b-roll.html |
 | Kim Profile Selects | 2026-05-06 | https://c7sharp9.github.io/client-preview/kim-profile-selects.html |
 | Linkedin Doc Preview | 2026-05-06 | https://c7sharp9.github.io/client-preview/linkedin-doc-preview.html |
 | Implant Math Playbook | 2026-05-06 | https://c7sharp9.github.io/client-preview/implant-math-playbook.html |
